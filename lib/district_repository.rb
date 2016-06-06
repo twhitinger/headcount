@@ -8,4 +8,10 @@ class DistrictRepository
     # returns either [] or one or more matches which contain the supplied name fragment, case insensitive
   end
 
+  def load_data(data)
+    # return hash {  :enrollment => {
+    #   :kindergarten => "./data/Kindergartners in full-day program.csv"
+    # }
+  end
+
 end
