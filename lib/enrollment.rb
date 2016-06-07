@@ -5,7 +5,8 @@ class Enrollment
   end
 
   def name
-    enrollment_hash[:name]
+    # binding.pry
+    enrollment_hash.fetch(:name, nil)
   end
 
   def kindergarten_participation_by_year
