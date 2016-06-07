@@ -1,17 +1,24 @@
 class DistrictRepository
-
-  def find_by_name
-    #  returns either nil or an instance of District having done a case insensitive search
+  attr_reader :district
+  def initialize(district = [])
+    @district = district
   end
 
-  def find_all_matching
-    # returns either [] or one or more matches which contain the supplied name fragment, case insensitive
+  def find_by_name(name)
+    district.find { |district| district.name == name }
   end
 
-  def load_data(data)
-    # return hash {  :enrollment => {
-    #   :kindergarten => "./data/Kindergartners in full-day program.csv"
-    # }
+  def find_all_matching(fragment)
+
+    district.select do |district|
+      district.name.downcase.include?(fragment.downcase)
+    end
   end
 
-end
+    def load_data(data)
+      # return hash {  :enrollment => {
+      #   :kindergarten => "./data/Kindergartners in full-day program.csv"
+      # }
+    end
+
+  end

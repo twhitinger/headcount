@@ -1,8 +1,11 @@
 class District
-  attr_reader :name
-  
+  attr_reader :district
   def initialize(hash)
+    @district = hash
+  end
+
+  def name
     # returns the upcased string name of the district
-    @name = hash[:name].upcase
+    district[:name].upcase
   end
 end

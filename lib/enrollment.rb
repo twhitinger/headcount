@@ -1,19 +1,26 @@
 class Enrollment
   attr_reader :enrollment_hash
-  
-  def initialize(hash)
-    @enrollment_hash = hash
+
+  def initialize(attributes = {})
+    @enrollment_hash = attributes
+  end
+
+  def name
+    enrollment_hash[:name]
   end
 
   def kindergarten_participation_by_year
-    # This method returns a hash with years as keys and a truncated three-digit
-    # floating point number representing a percentage for all years present in the dataset.
-    enrollment_hash[:kindergarten_participation].each {|k, v|  enrollment_hash[:kindergarten_participation][k] = (v * 1000).floor / 1000.0 }
-    enrollment_hash[:kindergarten_participation]
+    enrollment_hash[:kindergarten_participation].reduce({}) do |result, pair|
+      result.merge(pair.first => truncate_float(pair.last))
+    end
   end
 
   def kindergarten_participation_in_year(year)
-   (enrollment_hash[:kindergarten_participation][year] * 1000).floor / 1000.0
+   kindergarten_participation_by_year[year]
+  end
+
+  def truncate_float(float)
+    (float * 1000).floor.abs / 1000.0
   end
 
 end
