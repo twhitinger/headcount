@@ -1,7 +1,7 @@
 class Enrollment
   attr_reader :enrollment_hash
+  
   def initialize(hash)
-
     @enrollment_hash = hash
   end
 
@@ -13,7 +13,6 @@ class Enrollment
   end
 
   def kindergarten_participation_in_year(year)
-  
    (enrollment_hash[:kindergarten_participation][year] * 1000).floor / 1000.0
   end
 
