@@ -13,7 +13,7 @@ class Enrollment
   end
 
   def kindergarten_participation_in_year(year)
-    binding.pry
+  
    (enrollment_hash[:kindergarten_participation][year] * 1000).floor / 1000.0
   end
 
