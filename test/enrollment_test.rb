@@ -9,6 +9,7 @@ class EnrollmentTest < Minitest::Test
     assert_equal e.enrollment_hash, {:name => "ACADEMY 20", :kindergarten_participation => {2010 => 0.3915, 2011 => 0.35356, 2012 => 0.2677}}
   end
 
+
   def test_name_method_returns_correct
     e1 = Enrollment.new({:name => "ACADEMY 20"})
     e2 = Enrollment.new({:name => "DANCE"})
@@ -18,6 +19,7 @@ class EnrollmentTest < Minitest::Test
     assert_equal "DANCE", e2.name
     assert_equal "THEMONKEYISBLUE", e3.name
   end
+
 
   def test_truncate_float
     e1 = Enrollment.new
