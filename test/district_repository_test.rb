@@ -9,24 +9,22 @@ class DistrictRepositoryTest < Minitest::Test
     assert dr
   end
 
-  def test_method_load_data
-    skip
-    dr = DistrictRepository.new
-
-    assert_equal dr.load_data(data), basic_domain_object_district
-  end
-
   def test_load_districts
-    skip
+
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
         :kindergarten => "./data/Kindergartners in full-day program.csv"
       }
       })
-      district = dr.find_by_name("ACADEMY 20")
+      district1 = dr.find_by_name("ACADEMY 20")
+      district2 = dr.find_by_name("CALHAN RJ-1")
+      district3 = dr.find_by_name("FUNHOUSE SCHOOL")
 
-      assert_equal "ACADEMY 20", district.name
+
+      assert_equal "ACADEMY 20", district1.name
+      assert_equal "CALHAN RJ-1", district2.name
+      refute district3
     end
 
     def test_find_by_name
@@ -34,9 +32,14 @@ class DistrictRepositoryTest < Minitest::Test
       d2= District.new(name: "ACADEMY 30")
       dr = DistrictRepository.new([d1,d2])
 
-      district = dr.find_by_name("ACADEMY 20")
-        
-      assert_equal "ACADEMY 20", district.name
+      district1 = dr.find_by_name("ACADEMY 20")
+      district2 = dr.find_by_name("Academy 30")
+      district3 = dr.find_by_name("Mile High University")
+
+      assert_equal "ACADEMY 20", district1.name
+      assert_equal "ACADEMY 30", district2.name
+      refute district3
+
     end
 
     def test_find_all_matching
@@ -47,7 +50,9 @@ class DistrictRepositoryTest < Minitest::Test
 
       r1 = dr.find_all_matching("aCademY")
       r2 = dr.find_all_matching("0")
+      r3 = dr.find_all_matching("Clown School")
       assert_equal [d1,d3], r1
       assert_equal [d1,d3], r2
+      assert_equal [], r3
     end
   end

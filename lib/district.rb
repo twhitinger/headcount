@@ -1,7 +1,7 @@
 class District
   attr_reader :district
-  def initialize(hash)
-    @district = hash
+  def initialize(attributes = {})
+    @district = attributes
   end
 
   def name
