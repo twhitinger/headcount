@@ -1,6 +1,6 @@
-require './lib/district_repository'
-require './lib/district'
-require './test/test_helper'
+require_relative '../lib/district_repository'
+require_relative '../lib/district'
+require_relative 'test_helper'
 
 
 class DistrictRepositoryTest < Minitest::Test
@@ -60,7 +60,7 @@ class DistrictRepositoryTest < Minitest::Test
     end
 
     def test_call_kindergarten_in_year_from_district
-      
+
       dr = DistrictRepository.new
       dr.load_data({
         :enrollment => {
