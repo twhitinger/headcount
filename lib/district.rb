@@ -14,8 +14,4 @@ class District
     @district.fetch(:name, nil)
   end
 
-  # def enrollment
-  #
-  #
-  # end
 end

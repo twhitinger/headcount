@@ -23,7 +23,7 @@ class EnrollmentRepository
     enrollment_data = per_enrollment_by_year.map do |name, years|
       merged = years.reduce({}, :merge)
       merged.delete(:name)
-      { name: name, kindergarten_participation: merged }
+      { name: name.upcase, kindergarten_participation: merged }
     end
 
     enrollment_data.each do |e|
@@ -32,7 +32,7 @@ class EnrollmentRepository
   end
 
   def find_by_name(name)
-    @enrollments.find { |enrollment| enrollment.name == name}
+    @enrollments.find { |enrollment| enrollment.name.downcase == name.downcase}
   end
 
 end
