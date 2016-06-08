@@ -1,8 +1,9 @@
+require "./lib/enrollment"
 require "csv"
 require "pp"
 
 class EnrollmentRepository
-
+  attr_reader :enrollments
   def initialize(enrollments = [])
     @enrollments = enrollments
   end
