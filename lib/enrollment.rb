@@ -5,7 +5,6 @@ class Enrollment
   end
 
   def name
-    # binding.pry
     enrollment_hash.fetch(:name, nil)
   end
 
@@ -21,7 +20,6 @@ class Enrollment
 
   def truncate_float(float)
     (float * 1000).floor.abs / 1000.0
-
   end
 
 end

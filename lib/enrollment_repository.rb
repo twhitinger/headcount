@@ -33,8 +33,6 @@ class EnrollmentRepository
 
   def find_by_name(name)
     @enrollments.find { |enrollment| enrollment.name == name.upcase }
-    # returns either nil or an instance of Enrollment having done a case
-    # insensitive search
   end
 
 end
