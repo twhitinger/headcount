@@ -32,7 +32,7 @@ class EnrollmentRepository
   end
 
   def find_by_name(name)
-    @enrollments.find { |enrollment| enrollment.name == name.upcase }
+    @enrollments.find { |enrollment| enrollment.name == name}
   end
 
 end
