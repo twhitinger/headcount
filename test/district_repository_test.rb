@@ -60,7 +60,7 @@ class DistrictRepositoryTest < Minitest::Test
     end
 
     def test_call_kindergarten_in_year_from_district
-
+      
       dr = DistrictRepository.new
       dr.load_data({
         :enrollment => {
@@ -69,10 +69,8 @@ class DistrictRepositoryTest < Minitest::Test
         })
 
         district = dr.find_by_name("ACADEMY 20")
-        
-        puts "test"
-
 
         assert_equal district.enrollment.kindergarten_participation_in_year(2010), 0.436
+        assert_equal district.enrollment.kindergarten_participation_in_year(2011), 0.489
       end
     end

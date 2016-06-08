@@ -9,7 +9,6 @@ class DistrictRepository
   def initialize(attributes = [])
     @districts = attributes
     @enrollment_repo = EnrollmentRepository.new
-    @search = nil
   end
 
   def find_by_name(name)
@@ -19,14 +18,12 @@ class DistrictRepository
   end
 
   def find_all_matching(fragment)
-
     districts.select do |district|
       district.name.downcase.include?(fragment.downcase)
     end
   end
 
   def load_data(file_tree)
-
 
     filepath = file_tree[:enrollment][:kindergarten]
 
@@ -47,22 +44,11 @@ class DistrictRepository
     district_data.each do |e|
       @districts << District.new(e)
     end
-
     enrollment_repo = @enrollment_repo.load_data(file_tree)
-
   end
 
   def insert_data_into_district
-    # district = find_by_name("ACADEMY 20")
     @search.enrollment = enrollment_repo.find_by_name(@search.name)
   end
-  # def insert_data_into_district
-  #
-  #   district = @enrollment_repo.find_by_name("ACADEMY 20")
-  #   enrollment_repo = @enrollment_repo.find_by_name("ACADEMY 20")
-  #     binding.pry
-  #
-  #   district.enrollment = @enrollment_repo.find_by_name("ACADEMY 20")
-  # end
 
 end
