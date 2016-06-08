@@ -11,7 +11,7 @@ class DistrictRepository
   end
 
   def find_by_name(name)
-    districts.find { |district| district.name == name }
+    districts.find { |district| district.name.downcase == name.downcase }
   end
 
   def find_all_matching(fragment)
@@ -27,13 +27,14 @@ class DistrictRepository
       auto_generate_repo(repo_type, files)
     end
     push_info_to_district
+    
   end
 
   def generate_district_repo(file_tree)
     filepath = file_tree[:enrollment][:kindergarten]
     years =  CSV.foreach(filepath, headers: true, header_converters: :symbol).map(&:to_h)
     years.each do |row|
-      next if find_by_name(row[:location].upcase)
+      next if find_by_name(row[:location])
       districts << District.new(name: row[:location])
     end
   end
