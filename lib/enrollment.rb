@@ -1,6 +1,7 @@
 require_relative "math_helper"
 class Enrollment
   attr_reader :kindergarten_data, :high_school_data
+
   def initialize(attributes = {})
     @kindergarten_data = attributes
     @high_school_data = {}
