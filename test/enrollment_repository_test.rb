@@ -10,7 +10,7 @@ class EnrollmentRepositoryTest < Minitest::Test
     er = EnrollmentRepository.new
     er.load_data({
       :enrollment => {
-        :kindergarten_participation => "./data/Kindergartners in full-day program.csv"
+        :kindergarten => "./data/Kindergartners in full-day program.csv"
       }
       })
       enrollment1 = er.find_by_name("ACADEMY 20")
@@ -43,7 +43,7 @@ class EnrollmentRepositoryTest < Minitest::Test
           :high_school_graduation => "./data/High school graduation rates.csv"
         }
         })
-    
+
         enrollment = er.find_by_name("ACADEMY 20")
         assert enrollment
       end
