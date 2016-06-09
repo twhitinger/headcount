@@ -13,7 +13,6 @@ class Enrollment
   # end
 
   def kindergarten_participation_by_year
-
     kindergarten_data[:kindergarten_participation].reduce({}) do |result, pair|
       result.merge(pair.first => MathHelper.truncate_float(pair.last))
     end
