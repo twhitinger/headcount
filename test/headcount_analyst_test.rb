@@ -71,7 +71,7 @@ class HeadcountAnalystTest < Minitest::Test
   end
 
   def test_looping_through_each_district
-
+    # skip
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
@@ -80,12 +80,13 @@ class HeadcountAnalystTest < Minitest::Test
       }
     })
     ha = HeadcountAnalyst.new(dr)
-    ha.loop_through_schools
 
-    refute ha.loop_through_schools
+
+    refute ha.loop_through_all_schools
   end
 
   def test_find_if_correlates_statewide_returns_boolean
+    # skip
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
@@ -97,4 +98,17 @@ class HeadcountAnalystTest < Minitest::Test
 
       refute ha.kindergarten_participation_correlates_with_high_school_graduation(:for => 'STATEWIDE')
     end
-end
+
+    def test_find_if_correlates_selected_states_returns_boolean
+      dr = DistrictRepository.new
+      dr.load_data({
+        :enrollment => {
+          :kindergarten => "./data/Kindergartners in full-day program.csv",
+          :high_school_graduation => "./data/High school graduation rates.csv"
+        }
+      })
+      ha = HeadcountAnalyst.new(dr)
+
+      refute ha.kindergarten_participation_correlates_with_high_school_graduation(:across => ['ACADEMY 20', 'BRIGHTON 27J', 'BRIGGSDALE RE-10', 'BUENA VISTA R-31'])
+      end
+     end
