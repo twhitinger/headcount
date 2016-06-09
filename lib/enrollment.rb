@@ -1,3 +1,4 @@
+require_relative "helper"
 class Enrollment
   attr_reader :enrollment_hash
   def initialize(attributes = {})
@@ -10,7 +11,7 @@ class Enrollment
 
   def kindergarten_participation_by_year
     enrollment_hash[:kindergarten_participation].reduce({}) do |result, pair|
-      result.merge(pair.first => truncate_float(pair.last))
+      result.merge(pair.first => Helper.truncate_float(pair.last))
     end
   end
 
@@ -18,8 +19,8 @@ class Enrollment
    kindergarten_participation_by_year[year]
   end
 
-  def truncate_float(float)
-    (float * 1000).floor.abs / 1000.0
-  end
+  # def Helper.truncate_float(float)
+  #   (float * 1000).floor.abs / 1000.0
+  # end
 
 end
