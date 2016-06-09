@@ -3,6 +3,7 @@ require_relative 'math_helper'
 class HeadcountAnalyst
   def initialize(district_repo = {})
     @district_repo = district_repo
+    @statewide = []
   end
 
   def kindergarten_participation_rate_variation(location_one, location_two)
@@ -25,8 +26,7 @@ class HeadcountAnalyst
     loc1.merge(loc2) { |k, v1, v2| MathHelper.truncate_float(v1/v2) }
   end
 
-  def compute_hs_grad_participation_avg(location_name
-    
+  def compute_hs_grad_participation_avg(location_name)
     location = @district_repo.find_by_name(location_name)
     location.enrollment.high_school_data[:high_school_graduation_participation].values.reduce(:+)/
     location.enrollment.high_school_data[:high_school_graduation_participation].length
@@ -39,22 +39,34 @@ class HeadcountAnalyst
   end
 
   def kindergarten_participation_correlates_with_high_school_graduation(location)
-    correlation = kindergarten_participation_against_high_school_graduation(location[:for])
-    binding.pry
-    @statewide >> correlation.between?(0.6, 1.5)
-    correlation.between?(0.6, 1.5)
-
-  end
-
-  def loop_through_schools
-    # for each Enrollment instance pull out hs data, and avg all years together
-    @district_repo.districts.map do |school|
-# kindergarten_participation_against_high_school_graduation(school.name)
+    if location[:for] == "STATEWIDE"
+      return loop_through_schools
+      #shit
+    else
+      #return a boolean if not "STATEWIDE"
+      correlation = kindergarten_participation_against_high_school_graduation(location[:for])
+      correlation.between?(0.6, 1.5)
     end
   end
+  # ha.kindergarten_participation_correlates_with_high_school_graduation(:for => 'STATEWIDE') # => true
+  def loop_through_schools
+    @district_repo.districts.each do |school|
 
-  def location(name)
-    @district_repo.find_by_name(name)
+      kg = compute_kindergartner_participation_average(school.name)
+      hs = compute_hs_grad_participation_avg(school.name)
+      correlation = MathHelper.truncate_float(kg/hs)
+      @statewide << correlation.between?(0.6, 1.5) unless school.name == "COLORADO"
+    end
+    compare_statewide_correlation
   end
-  # calculate kg_avg/hs_avg for all schools, then shovel into statewide array
+
+  def compare_statewide_correlation
+    occurances = @statewide.find_all { |correlation| correlation == true }.length
+    total = @statewide.length
+    if (occurances.to_f / total) > 0.7
+      true
+    else
+      false
+    end
+  end
 end

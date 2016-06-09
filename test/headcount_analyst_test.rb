@@ -5,18 +5,20 @@ require_relative 'test_helper'
 
 class HeadcountAnalystTest < Minitest::Test
   def test_headcount_is_existing
+    # skip
     ha = HeadcountAnalyst.new
     assert ha
   end
 
   def test_initialize_headcount_with_district
+      # skip
     dr = DistrictRepository.new
     ha = HeadcountAnalyst.new(dr)
     assert ha
   end
 
   def test_kindergarten_participation_rate_variation
-
+      # skip
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
@@ -29,6 +31,7 @@ class HeadcountAnalystTest < Minitest::Test
   end
 
   def test_kindergarten_participation_rate_variation_trend
+      # skip
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
@@ -40,6 +43,7 @@ class HeadcountAnalystTest < Minitest::Test
   end
 
   def test_kindergarten_vs_high_school
+      # skip
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
@@ -53,6 +57,7 @@ class HeadcountAnalystTest < Minitest::Test
   end
 
   def test_kindergarten_vs_high_school_prediction
+      # skip
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
@@ -63,10 +68,24 @@ class HeadcountAnalystTest < Minitest::Test
     ha = HeadcountAnalyst.new(dr)
 
     refute ha.kindergarten_participation_correlates_with_high_school_graduation(for: 'ACADEMY 20')
-    refute ha.kindergarten_participation_correlates_with_high_school_graduation(:for => 'STATEWIDE')
   end
 
   def test_looping_through_each_district
+
+    dr = DistrictRepository.new
+    dr.load_data({
+      :enrollment => {
+        :kindergarten => "./data/Kindergartners in full-day program.csv",
+        :high_school_graduation => "./data/High school graduation rates.csv"
+      }
+    })
+    ha = HeadcountAnalyst.new(dr)
+    ha.loop_through_schools
+
+    refute ha.loop_through_schools
+  end
+
+  def test_find_if_correlates_statewide_returns_boolean
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
@@ -76,6 +95,6 @@ class HeadcountAnalystTest < Minitest::Test
     })
     ha = HeadcountAnalyst.new(dr)
 
-    assert_equal "fuckyou", ha.loop_through_schools
-  end
+      refute ha.kindergarten_participation_correlates_with_high_school_graduation(:for => 'STATEWIDE')
+    end
 end
