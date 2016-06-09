@@ -6,11 +6,11 @@ require_relative 'test_helper'
 class EnrollmentRepositoryTest < Minitest::Test
 
   def test_loading_enrollments
-    
+
     er = EnrollmentRepository.new
     er.load_data({
       :enrollment => {
-        :kindergarten => "./data/Kindergartners in full-day program.csv"
+        :kindergarten_participation => "./data/Kindergartners in full-day program.csv"
       }
       })
       enrollment1 = er.find_by_name("ACADEMY 20")
@@ -39,7 +39,7 @@ class EnrollmentRepositoryTest < Minitest::Test
       er = EnrollmentRepository.new
       er.load_data({
         :enrollment => {
-          :kindergarten => "./data/Kindergartners in full-day program.csv",
+          :kindergarten_participation => "./data/Kindergartners in full-day program.csv",
           :high_school_graduation => "./data/High school graduation rates.csv"
         }
         })
