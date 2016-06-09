@@ -12,9 +12,7 @@ class HeadcountAnalyst
   end
 
   def compute_kindergartner_participation_average(location_name)
-    
     location = @district_repo.find_by_name(location_name)
-
     location.enrollment.enrollment_hash[:kindergarten_participation].values.reduce(:+)/
     location.enrollment.enrollment_hash[:kindergarten_participation].length
   end

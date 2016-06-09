@@ -22,12 +22,10 @@ class DistrictRepository
 
   def load_data(repo_id)
     generate_district_repo(repo_id)
-
     repo_id.each do |repo_type, files|
       auto_generate_repo(repo_type, files)
     end
     push_info_to_district
-    
   end
 
   def generate_district_repo(file_tree)
