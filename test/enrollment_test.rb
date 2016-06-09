@@ -29,9 +29,9 @@ class EnrollmentTest < Minitest::Test
 
 
   def test_kindergarten_participation_by_year_truncates
-    e1 = Enrollment.new({:name => "test", :kindergarten => {2010 => 0.3915, 2011 => 0.35356, 2012 => 0.2677}})
-    e2 = Enrollment.new({:name => "test", :kindergarten => {2007 => 0.5673456, 2001 => 0.98075, 1987 => 0.12345}})
-    e3 = Enrollment.new({:name => "test", :kindergarten => {900 => 0.3456, 1776 => 0.96784, 25555 => 0.85678}})
+    e1 = Enrollment.new({:name => "test", :kindergarten_participation => {2010 => 0.3915, 2011 => 0.35356, 2012 => 0.2677}})
+    e2 = Enrollment.new({:name => "test", :kindergarten_participation  => {2007 => 0.5673456, 2001 => 0.98075, 1987 => 0.12345}})
+    e3 = Enrollment.new({:name => "test", :kindergarten_participation  => {900 => 0.3456, 1776 => 0.96784, 25555 => 0.85678}})
 
     assert_equal e1.kindergarten_participation_by_year, {2010 => 0.391, 2011 => 0.353, 2012 => 0.267}
     assert_equal e2.kindergarten_participation_by_year, {2007 => 0.567, 2001 => 0.980, 1987 => 0.123}
@@ -41,8 +41,8 @@ class EnrollmentTest < Minitest::Test
 
 
   def test_kindergarten_participation_in_year_truncates
-    e1 = Enrollment.new({:name => "test", :kindergarten => {2010 => 0.3915}})
-    e2 = Enrollment.new({:name => "test", :kindergarten => {2011 => 0.35356}})
+    e1 = Enrollment.new({:name => "test", :kindergarten_participation => {2010 => 0.3915}})
+    e2 = Enrollment.new({:name => "test", :kindergarten_participation => {2011 => 0.35356}})
 
     assert_equal e1.kindergarten_participation_in_year(2010), 0.391
     assert_equal e2.kindergarten_participation_in_year(2011), 0.353
