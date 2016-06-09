@@ -21,12 +21,12 @@ class EnrollmentRepository
       enrollment_data = per_enrollment_by_year.map do |name, years|
         merged = years.reduce({}, :merge)
         merged.delete(:name)
-        { name: name.upcase, source => merged }
+        { name: name.upcase, (source.to_s + "_participation").to_sym => merged }
       end
 
       enrollment_data.each do |data|
         if find_by_name(data[:name])
-          find_by_name(data[:name]).high_school_data.merge!({name: data[:name], source => data[source]})
+          find_by_name(data[:name]).high_school_data.merge!({name: data[:name], (source.to_s + "_participation").to_sym => data[source]})
         else
           @enrollments << Enrollment.new(data)
         end
