@@ -1,5 +1,5 @@
 require_relative '../lib/enrollment'
-require_relative '../lib/helper'
+require_relative '../lib/math_helper'
 require_relative 'test_helper'
 
 
@@ -21,41 +21,41 @@ class EnrollmentTest < Minitest::Test
   end
 
   def test_truncate_float
-    e1 = Enrollment.new
+    e1 = Enrollment.new({:name => "test"})
 
-    assert_equal 34.456, Helper.truncate_float(34.4564527)
-    assert_equal 0.234,  Helper.truncate_float(0.23415623456245)
+    assert_equal 34.456, MathHelper.truncate_float(34.4564527)
+    assert_equal 0.234,  MathHelper.truncate_float(0.23415623456245)
   end
 
-  def test_kidergarten_participation_by_year_truncates
-    e1 = Enrollment.new({:kindergarten => {2010 => 0.3915, 2011 => 0.35356, 2012 => 0.2677}})
-    e2 = Enrollment.new({:kindergarten => {2007 => 0.5673456, 2001 => 0.98075, 1987 => 0.12345}})
-    e3 = Enrollment.new({:kindergarten => {900 => 0.3456, 1776 => 0.96784, 25555 => 0.85678}})
+  def test_kindergarten_participation_by_year_truncates
+    e1 = Enrollment.new({:name => "test", :kindergarten_participation => {2010 => 0.3915, 2011 => 0.35356, 2012 => 0.2677}})
+    e2 = Enrollment.new({:name => "test", :kindergarten_participation => {2007 => 0.5673456, 2001 => 0.98075, 1987 => 0.12345}})
+    e3 = Enrollment.new({:name => "test", :kindergarten_participation => {900 => 0.3456, 1776 => 0.96784, 25555 => 0.85678}})
 
     assert_equal e1.kindergarten_participation_by_year, {2010 => 0.391, 2011 => 0.353, 2012 => 0.267}
     assert_equal e2.kindergarten_participation_by_year, {2007 => 0.567, 2001 => 0.980, 1987 => 0.123}
     assert_equal e3.kindergarten_participation_by_year, {900 => 0.345, 1776 => 0.967, 25555 => 0.856}
   end
 
-  def test_kidergarten_participation_in_year_truncates
-    e1 = Enrollment.new({:kindergarten => {2010 => 0.3915}})
-    e2 = Enrollment.new({:kindergarten => {2011 => 0.35356}})
+  def test_kindergarten_participation_in_year_truncates
+    e1 = Enrollment.new({:name => "test", :kindergarten_participation => {2010 => 0.3915}})
+    e2 = Enrollment.new({:name => "test", :kindergarten_participation => {2011 => 0.35356}})
 
     assert_equal e1.kindergarten_participation_in_year(2010), 0.391
     assert_equal e2.kindergarten_participation_in_year(2011), 0.353
   end
 
   def test_graduation_rate_by_year
-    e1 = Enrollment.new({:high_school_graduation => {2007 => 0.5674}})
-    e2 = Enrollment.new({:high_school_graduation => {2025 => 0.999}})
+    e1 = Enrollment.new({:name => "test", :high_school_graduation => {2007 => 0.5674}})
+    e2 = Enrollment.new({:name => "test", :high_school_graduation => {2025 => 0.999}})
 
     assert_equal e1.graduation_rate_by_year, {2007 => 0.567}
     assert_equal e2.graduation_rate_by_year, {2025 => 0.999}
   end
 
   def test_graduation_rate_in_year
-    e1 = Enrollment.new({:high_school_graduation => {2007 => 0.5674}})
-    e2 = Enrollment.new({:high_school_graduation => {2025 => 0.999}})
+    e1 = Enrollment.new({:name => "test", :high_school_graduation => {2007 => 0.5674}})
+    e2 = Enrollment.new({:name => "test", :high_school_graduation => {2025 => 0.999}})
 
     assert_equal e1.graduation_rate_in_year(2007), 0.567
     assert_equal e2.graduation_rate_in_year(2025), 0.999
