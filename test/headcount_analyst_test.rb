@@ -22,21 +22,60 @@ class HeadcountAnalystTest < Minitest::Test
       :enrollment => {
         :kindergarten => "./data/Kindergartners in full-day program.csv"
       }
-      })
-      ha = HeadcountAnalyst.new(dr)
-      assert_equal 0.766, ha.kindergarten_participation_rate_variation('ACADEMY 20', :against => 'COLORADO')
-      assert_equal 0.447, ha.kindergarten_participation_rate_variation('ACADEMY 20', :against => 'YUMA SCHOOL DISTRICT 1')
-    end
+    })
+    ha = HeadcountAnalyst.new(dr)
+    assert_equal 0.766, ha.kindergarten_participation_rate_variation('ACADEMY 20', :against => 'COLORADO')
+    assert_equal 0.447, ha.kindergarten_participation_rate_variation('ACADEMY 20', :against => 'YUMA SCHOOL DISTRICT 1')
+  end
 
-    def test_kindergarten_participation_rate_variation_trend
+  def test_kindergarten_participation_rate_variation_trend
+    dr = DistrictRepository.new
+    dr.load_data({
+      :enrollment => {
+        :kindergarten => "./data/Kindergartners in full-day program.csv"
+      }
+    })
+    ha = HeadcountAnalyst.new(dr)
+    assert_equal ({2007=>0.992, 2006=>1.05, 2005=>0.96, 2004=>1.257, 2008=>0.717, 2009=>0.652, 2010=>0.681, 2011=>0.727, 2012=>0.688, 2013=>0.694, 2014=>0.661}),ha.kindergarten_participation_rate_variation_trend('ACADEMY 20', :against => 'COLORADO')
+  end
 
-      dr = DistrictRepository.new
-      dr.load_data({
-        :enrollment => {
-          :kindergarten => "./data/Kindergartners in full-day program.csv"
-        }
-        })
-        ha = HeadcountAnalyst.new(dr)
-        assert_equal ({2007=>0.992, 2006=>1.05, 2005=>0.96, 2004=>1.257, 2008=>0.717, 2009=>0.652, 2010=>0.681, 2011=>0.727, 2012=>0.688, 2013=>0.694, 2014=>0.661}),ha.kindergarten_participation_rate_variation_trend('ACADEMY 20', :against => 'COLORADO')
-      end
-    end
+  def test_kindergarten_vs_high_school
+    dr = DistrictRepository.new
+    dr.load_data({
+      :enrollment => {
+        :kindergarten => "./data/Kindergartners in full-day program.csv",
+        :high_school_graduation => "./data/High school graduation rates.csv"
+      }
+    })
+    ha = HeadcountAnalyst.new(dr)
+
+    assert_equal 0.452, ha.kindergarten_participation_against_high_school_graduation('ACADEMY 20')
+  end
+
+  def test_kindergarten_vs_high_school_prediction
+    dr = DistrictRepository.new
+    dr.load_data({
+      :enrollment => {
+        :kindergarten => "./data/Kindergartners in full-day program.csv",
+        :high_school_graduation => "./data/High school graduation rates.csv"
+      }
+    })
+    ha = HeadcountAnalyst.new(dr)
+
+    refute ha.kindergarten_participation_correlates_with_high_school_graduation(for: 'ACADEMY 20')
+    refute ha.kindergarten_participation_correlates_with_high_school_graduation(:for => 'STATEWIDE')
+  end
+
+  def test_looping_through_each_district
+    dr = DistrictRepository.new
+    dr.load_data({
+      :enrollment => {
+        :kindergarten => "./data/Kindergartners in full-day program.csv",
+        :high_school_graduation => "./data/High school graduation rates.csv"
+      }
+    })
+    ha = HeadcountAnalyst.new(dr)
+
+    assert_equal "fuckyou", ha.loop_through_schools
+  end
+end

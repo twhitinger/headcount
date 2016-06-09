@@ -1,3 +1,4 @@
+require_relative '../lib/enrollment_repository'
 require_relative '../lib/enrollment'
 require_relative '../lib/math_helper'
 require_relative 'test_helper'
@@ -48,20 +49,47 @@ class EnrollmentTest < Minitest::Test
     assert_equal e2.kindergarten_participation_in_year(2011), 0.353
   end
 
-  def test_graduation_rate_by_year
-    e1 = Enrollment.new({:name => "test", :high_school_graduation => {2007 => 0.5674}})
-    e2 = Enrollment.new({:name => "test", :high_school_graduation => {2025 => 0.999}})
+  def test_enrollment_loads_second_file
+    er = EnrollmentRepository.new
+    er.load_data({
+      :enrollment => {
+        :kindergarten => "./data/Kindergartners in full-day program.csv",
+        :high_school_graduation => "./data/High school graduation rates.csv"
+      }
+      })
+    enrollment = er.find_by_name("ACADEMY 20")
 
-    assert_equal e1.graduation_rate_by_year, {2007 => 0.567}
-    assert_equal e2.graduation_rate_by_year, {2025 => 0.999}
+    assert_instance_of Enrollment, enrollment
   end
 
-  def test_graduation_rate_in_year
-    e1 = Enrollment.new({:name => "test", :high_school_graduation => {2007 => 0.5674}})
-    e2 = Enrollment.new({:name => "test", :high_school_graduation => {2025 => 0.999}})
+  def test_enrollment_grad_rate_by_year
+    er = EnrollmentRepository.new
+    er.load_data({
+      :enrollment => {
+        :kindergarten => "./data/Kindergartners in full-day program.csv",
+        :high_school_graduation => "./data/High school graduation rates.csv"
+      }
+      })
+    enrollment1 = er.find_by_name("ACADEMY 20")
+    enrollment2 = er.find_by_name("COLORADO")
 
-    assert_equal e1.graduation_rate_in_year(2007), 0.567
-    assert_equal e2.graduation_rate_in_year(2025), 0.999
-    assert_equal e2.graduation_rate_in_year(2031), nil
+    assert_equal enrollment1.graduation_rate_by_year, {2010=>0.895, 2011=>0.895, 2012=>0.889, 2013=>0.913, 2014=>0.898}
+    assert_equal enrollment2.graduation_rate_by_year, {2010=>0.724, 2011=>0.739, 2012=>0.753, 2013=>0.769, 2014=>0.773}
+  end
+
+  def test_enrollment_graduation_rate_in_year
+    er = EnrollmentRepository.new
+    er.load_data({
+      :enrollment => {
+        :kindergarten => "./data/Kindergartners in full-day program.csv",
+        :high_school_graduation => "./data/High school graduation rates.csv"
+      }
+      })
+    enrollment = er.find_by_name("ACADEMY 20")
+
+    assert_equal enrollment.graduation_rate_in_year(2010), 0.895
+    assert_equal enrollment.graduation_rate_in_year(2011), 0.895
+    assert_equal enrollment.graduation_rate_in_year(2012), 0.889
+    assert_equal enrollment.graduation_rate_in_year(2032), nil
   end
 end
