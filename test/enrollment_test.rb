@@ -1,4 +1,5 @@
 require_relative '../lib/enrollment'
+require_relative '../lib/helper'
 require_relative 'test_helper'
 
 
@@ -22,8 +23,8 @@ class EnrollmentTest < Minitest::Test
   def test_truncate_float
     e1 = Enrollment.new
 
-    assert_equal 34.456, e1.truncate_float(34.4564527)
-    assert_equal 0.234, e1.truncate_float(0.23415623456245)
+    assert_equal 34.456, Helper.truncate_float(34.4564527)
+    assert_equal 0.234,  Helper.truncate_float(0.23415623456245)
   end
 
   def test_kidergarten_participation_by_year_truncates
