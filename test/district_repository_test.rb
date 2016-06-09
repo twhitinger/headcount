@@ -15,7 +15,7 @@ class DistrictRepositoryTest < Minitest::Test
     dr = DistrictRepository.new
     dr.load_data({
       :enrollment => {
-        :kindergarten => "./data/Kindergartners in full-day program.csv"
+        :kindergarten_participation => "./data/Kindergartners in full-day program.csv"
       }
       })
       district1 = dr.find_by_name("ACADEMY 20")
@@ -64,7 +64,7 @@ class DistrictRepositoryTest < Minitest::Test
       dr = DistrictRepository.new
       dr.load_data({
         :enrollment => {
-          :kindergarten => "./data/Kindergartners in full-day program.csv"
+          :kindergarten_participation => "./data/Kindergartners in full-day program.csv"
         }
         })
 

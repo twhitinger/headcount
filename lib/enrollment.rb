@@ -1,19 +1,21 @@
-require_relative "helper"
+require_relative "math_helper"
 class Enrollment
-  attr_reader :kindergarten_data, :high_school_data
+  attr_reader :kindergarten_data, :high_school_data, :name
+
   def initialize(attributes = {})
     @kindergarten_data = attributes
     @high_school_data = {}
+    @name = attributes[:name].upcase
   end
 
-  def name
-    kindergarten_data.fetch(:name, nil)
-  end
+  # def name
+  #   kindergarten_data.fetch(:name, nil)
+  # end
 
   def kindergarten_participation_by_year
 
     kindergarten_data[:kindergarten_participation].reduce({}) do |result, pair|
-      result.merge(pair.first => Helper.truncate_float(pair.last))
+      result.merge(pair.first => MathHelper.truncate_float(pair.last))
     end
   end
 
@@ -23,7 +25,7 @@ class Enrollment
 
   def graduation_rate_by_year
     kindergarten_data[:high_school_graduation].reduce({}) do |result, pair|
-      result.merge(pair.first => Helper.truncate_float(pair.last))
+      result.merge(pair.first => MathHelper.truncate_float(pair.last))
     end
   end
 
