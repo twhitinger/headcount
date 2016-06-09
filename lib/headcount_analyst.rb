@@ -13,15 +13,15 @@ class HeadcountAnalyst
 
   def compute_kindergartner_participation_average(location_name)
     location = @district_repo.find_by_name(location_name)
-    location.enrollment.enrollment_hash[:kindergarten_participation].values.reduce(:+)/
-    location.enrollment.enrollment_hash[:kindergarten_participation].length
+    location.enrollment.kindergarten_data[:kindergarten].values.reduce(:+)/
+    location.enrollment.kindergarten_data[:kindergarten].length
   end
 
   def kindergarten_participation_rate_variation_trend(location_one, location_two)
     location1 = @district_repo.find_by_name(location_one)
-    loc1 = location1.enrollment.enrollment_hash[:kindergarten_participation]
+    loc1 = location1.enrollment.kindergarten_data[:kindergarten]
     location2 = @district_repo.find_by_name(location_two[:against])
-    loc2 = location2.enrollment.enrollment_hash[:kindergarten_participation]
+    loc2 = location2.enrollment.kindergarten_data[:kindergarten]
     loc1.merge(loc2) { |k, v1, v2| Helper.truncate_float(v1/v2) }
   end
 
