@@ -19,8 +19,13 @@ class Enrollment
    kindergarten_participation_by_year[year]
   end
 
-  # def Helper.truncate_float(float)
-  #   (float * 1000).floor.abs / 1000.0
-  # end
+  def graduation_rate_by_year
+    enrollment_hash[:high_school_graduation].reduce({}) do |result, pair|
+      result.merge(pair.first => Helper.truncate_float(pair.last))
+    end
+  end
 
+  def graduation_rate_in_year(year)
+    graduation_rate_by_year[year]
+  end
 end

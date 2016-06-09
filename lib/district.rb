@@ -11,5 +11,6 @@ class District
   def name
     @district.fetch(:name, nil).upcase
   end
+  
 
 end
