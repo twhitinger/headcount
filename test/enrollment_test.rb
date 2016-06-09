@@ -44,4 +44,21 @@ class EnrollmentTest < Minitest::Test
     assert_equal e1.kindergarten_participation_in_year(2010), 0.391
     assert_equal e2.kindergarten_participation_in_year(2011), 0.353
   end
+
+  def test_graduation_rate_by_year
+    e1 = Enrollment.new({:high_school_graduation => {2007 => 0.5674}})
+    e2 = Enrollment.new({:high_school_graduation => {2025 => 0.999}})
+
+    assert_equal e1.graduation_rate_by_year, {2007 => 0.567}
+    assert_equal e2.graduation_rate_by_year, {2025 => 0.999}
+  end
+
+  def test_graduation_rate_in_year
+    e1 = Enrollment.new({:high_school_graduation => {2007 => 0.5674}})
+    e2 = Enrollment.new({:high_school_graduation => {2025 => 0.999}})
+
+    assert_equal e1.graduation_rate_in_year(2007), 0.567
+    assert_equal e2.graduation_rate_in_year(2025), 0.999
+    assert_equal e2.graduation_rate_in_year(2031), nil
+  end
 end

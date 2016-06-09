@@ -54,6 +54,18 @@
         1,
         1,
         null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
         null
       ],
       "/Users/midas/turing/projects/headcount/test/enrollment_test.rb": [
@@ -100,6 +112,24 @@
         1,
         1,
         null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
         1,
         1,
         null,
@@ -163,9 +193,7 @@
         null,
         null,
         1,
-        null,
         4,
-        null,
         null,
         4,
         null,
@@ -181,6 +209,6 @@
         null
       ]
     },
-    "timestamp": 1465430555
+    "timestamp": 1465435735
   }
 }

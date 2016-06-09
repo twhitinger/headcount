@@ -33,4 +33,16 @@ class EnrollmentRepositoryTest < Minitest::Test
       assert_equal "ACADEMY 20", enrollment1.name
       refute enrollment2
     end
+
+    def test_add_support_for_another_file
+      er = EnrollmentRepository.new
+er.load_data({
+  :enrollment => {
+    :kindergarten => "./data/Kindergartners in full-day program.csv",
+    :high_school_graduation => "./data/High school graduation rates.csv"
+  }
+})
+    enrollment = er.find_by_name("ACADEMY 20")
+    assert enrollment
+    end
   end

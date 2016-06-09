@@ -34,5 +34,4 @@ class EnrollmentRepository
   def find_by_name(name)
     @enrollments.find { |enrollment| enrollment.name.downcase == name.downcase}
   end
-
 end
