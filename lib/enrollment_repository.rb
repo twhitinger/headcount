@@ -4,12 +4,12 @@ require "pp"
 
 class EnrollmentRepository
   attr_reader :enrollments
+  
   def initialize(enrollments = [])
     @enrollments = enrollments
   end
 
   def load_data(file_tree)
-
     filepath = file_tree[:enrollment] if file_tree.has_key?(:enrollment)
     filepath.each do |source, filename|
       years =  CSV.readlines(filename, headers: true, header_converters: :symbol).map do |row|

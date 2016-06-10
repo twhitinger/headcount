@@ -5,6 +5,7 @@ require "pp"
 
 class DistrictRepository
   attr_reader :districts, :enrollment_repo
+  
   def initialize(attributes = [])
     @districts = attributes
     @enrollment_repo = EnrollmentRepository.new

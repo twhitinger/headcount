@@ -1,6 +1,7 @@
 require_relative 'district_repository'
 require_relative 'math_helper'
 class HeadcountAnalyst
+
   def initialize(district_repo = {})
     @district_repo = district_repo
     @statewide = []
@@ -43,14 +44,12 @@ class HeadcountAnalyst
       return loop_through_all_schools
     elsif location[:across]
       loop_through_selected_schools(location[:across])
-      #shit
     else
-      #return a boolean if not "STATEWIDE"
       correlation = kindergarten_participation_against_high_school_graduation(location[:for])
       correlation.between?(0.6, 1.5)
     end
   end
-  # ha.kindergarten_participation_correlates_with_high_school_graduation(:for => 'STATEWIDE') # => true
+
   def loop_through_selected_schools(selected_schools)
 
     array = selected_schools.map do |school|
@@ -64,7 +63,6 @@ class HeadcountAnalyst
 
   def loop_through_all_schools
     @district_repo.districts.each do |school|
-
       kg = compute_kindergartner_participation_average(school.name)
       hs = compute_hs_grad_participation_avg(school.name)
       correlation = MathHelper.truncate_float(kg/hs)
@@ -82,6 +80,4 @@ class HeadcountAnalyst
       false
     end
   end
-
-
 end
