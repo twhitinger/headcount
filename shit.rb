@@ -1,7 +1,7 @@
 require "csv"
-require "pry"
 require "./lib/statewide_test"
 require "./lib/math_helper"
+require "pry"
 
 @statewide_tests = []
 def load_data(file_tree)
