@@ -1,7 +1,7 @@
 require_relative '../lib/math_helper'
 
 class StatewideTest
-
+  attr_reader :class_data
   def initialize(data = [])
     @class_data = data
   end

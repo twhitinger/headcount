@@ -19,7 +19,6 @@ def load_data(file_tree)
     # need to connect statewide_test
     @statewide_tests << StatewideTest.new(3 => shit_together) if source == :third_grade
   end
-  binding.pry
 end
 
 

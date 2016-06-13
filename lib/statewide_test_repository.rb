@@ -3,9 +3,9 @@ require "csv"
 require "pp"
 
 class StatewideTestRepository
-attr_reader :tests
+  attr_reader :tests, :statewide_tests
   def initialize
-     @statewide_tests = []
+    @statewide_tests = []
   end
 
   def load_data(file_tree)
@@ -20,11 +20,14 @@ attr_reader :tests
         single_district_data(name, district_data, subject_data)
       end
       # need to connect statewide_test
-      @statewide_tests << StatewideTest.new(3 => shit_together) if source == :third_grade
+      @statewide_tests << StatewideTest.new(shit_together) if source == :third_grade
     end
   end
 
-  def find_by_name
+  def find_by_name(district_name)
+    statewide_tests[0].class_data[district_name]
+    # returns either nil or an instance of StatewideTest having done a case insensitive search
+
   end
 
   def single_subject_data(subject, data, district_data)
