@@ -11,6 +11,7 @@ def load_data(file_tree)
     years = CSV.readlines(filename, headers: true, header_converters: :symbol).map(&:to_h)
     scores_by_location = years.group_by do |row|
       row[:location]
+      binding.pry
     end
     shit_together = scores_by_location.each_with_object({}) do |(name, district_data), subject_data|
       single_district_data(name, district_data, subject_data)
@@ -34,6 +35,7 @@ def single_district_data(name, district_data, subject_data)
   subject_data[name] = grouped_data.each_with_object({}) do |(subject, data), district_data|
     single_subject_data(subject, data, district_data)
   end
+end
 
 
 def group_by_subject(data)
