@@ -2,8 +2,8 @@ require_relative '../lib/math_helper'
 
 class StatewideTest
 
-  def initialize
-    @class_data = { 3 => third_hash, 8  => eight_hash }
+  def initialize(data = [])
+    @class_data = data
   end
 # [:asian, :black, :pacific_islander, :hispanic, :native_american, :two_or_more, :white]
   def proficient_by_grade(grade)
