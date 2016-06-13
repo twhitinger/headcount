@@ -34,7 +34,7 @@ def single_district_data(name, district_data, subject_data)
   subject_data[name] = grouped_data.each_with_object({}) do |(subject, data), district_data|
     single_subject_data(subject, data, district_data)
   end
-end
+
 
 def group_by_subject(data)
   data.group_by { |row| row[:score] }
