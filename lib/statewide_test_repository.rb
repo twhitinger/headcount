@@ -16,33 +16,31 @@ class StatewideTestRepository
       scores_by_location = years.group_by do |row|
         row[:location]
       end
-      shit_together = scores_by_location.each_with_object({}) do |(name, district_data), subject_data|
+      compiled_data = scores_by_location.each_with_object({}) do |(name, district_data), subject_data|
         single_district_data(name, district_data, subject_data)
       end
-
-      shit_together.each do |location_name, data|
+      compiled_data.each do |location_name, data|
         if find_by_name(location_name)
           #do some shit to merge the hash to the current
         else
-        @statewide_tests[location_name] = StatewideTest.new({source => data})
+          @statewide_tests[location_name] = StatewideTest.new({source => data})
+        end
+        #   if source == :third_grade
+        #     @store_all_files[compiled_data]
+        #   elsif source == :eighth_grade
+        #     @store_all_files[8] = compiled_data
+        #   elsif source == :math
+        #     @store_all_files[:math] = compiled_data
+        #   elsif source == :reading
+        #     @store_all_files[:reading] = compiled_data
+        #   else
+        #     @store_all_files[:writing] = compiled_data
+        #   end
+        # end
+
+        # @statewide_tests = StatewideTest.new(@store_all_files)
       end
-
-
-
-    #   if source == :third_grade
-    #     @store_all_files[shit_together]
-    #   elsif source == :eighth_grade
-    #     @store_all_files[8] = shit_together
-    #   elsif source == :math
-    #     @store_all_files[:math] = shit_together
-    #   elsif source == :reading
-    #     @store_all_files[:reading] = shit_together
-    #   else
-    #     @store_all_files[:writing] = shit_together
-    #   end
-    # end
-
-    # @statewide_tests = StatewideTest.new(@store_all_files)
+    end
   end
 
   def find_by_name(district_name)
