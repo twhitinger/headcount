@@ -51,13 +51,11 @@ class HeadcountAnalyst
   end
 
   def loop_through_selected_schools(selected_schools)
-
     array = selected_schools.map do |school|
       kg = compute_kindergartner_participation_average(school)
       hs = compute_hs_grad_participation_avg(school)
       correlation = MathHelper.truncate_float(kg/hs)
     end
-
     compare_statewide_correlation(array)
   end
 
@@ -74,10 +72,6 @@ class HeadcountAnalyst
   def compare_statewide_correlation(array = @statewide)
     occurances = array.find_all { |correlation| correlation == true }.length
     total = array.length
-    if (occurances.to_f / total) > 0.7
-      true
-    else
-      false
-    end
+    (occurances.to_f / total) > 0.7
   end
 end
