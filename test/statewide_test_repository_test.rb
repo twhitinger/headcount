@@ -12,10 +12,10 @@ class StatewideTestRepositoryTest < Minitest::Test
     str.load_data({
       :statewide_testing => {
         :third_grade => "./data/3rd grade students scoring proficient or above on the CSAP_TCAP.csv",
-        :eighth_grade => "./data/8th grade students scoring proficient or above on the CSAP_TCAP.csv"
-        # :math => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Math.csv",
-        # :reading => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Reading.csv",
-        # :writing => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Writing.csv"
+        :eighth_grade => "./data/8th grade students scoring proficient or above on the CSAP_TCAP.csv",
+        :math => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Math.csv",
+        :reading => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Reading.csv",
+        :writing => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Writing.csv"
       }
       })
       expected = {:math=>{2008=>0.857, 2009=>0.824, 2010=>0.849, 2011=>0.819, 2012=>0.83, 2013=>0.8554, 2014=>0.8345},
