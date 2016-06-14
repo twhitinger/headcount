@@ -35,7 +35,6 @@ class StatewideTest
         raise UnknownDataError unless class_data.values[0].class_data.keys.include?(grade_hash(grade))
       end
     end
-  end
-
+  
     class UnknownDataError < ArgumentError
     end

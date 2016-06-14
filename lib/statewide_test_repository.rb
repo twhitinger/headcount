@@ -16,7 +16,7 @@ class StatewideTestRepository
       scores_by_location = years.group_by do |row|
         row[:location]
       end
-      compiled_data = scores_by_location.each_with_object({}) do |(name, district_data), subject_data|
+      shit_together = scores_by_location.each_with_object({}) do |(name, district_data), subject_data|
         single_district_data(name, district_data, subject_data)
       end
       shit_together.each do |location_name, data|
