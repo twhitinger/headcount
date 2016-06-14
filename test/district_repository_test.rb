@@ -88,7 +88,12 @@ class DistrictRepositoryTest < Minitest::Test
             :writing => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Writing.csv"
           }
           })
-          binding.pry
+
           district = dr.find_by_name("ACADEMY 20")
+          expected = {:math=>0.857, :reading=>0.866, :writing=>0.671}
+          expected2 = {:"all students"=>0.689, :asian=>0.818, :black=>0.424, :"hawaiian/pacific islander"=>0.571, :hispanic=>0.572, :"native american"=>0.571, :"two or more"=>0.689, :white=>0.713}
+
+          assert_equal expected, district.statewide_test.class_data[:third_grade][2008]
+          assert_equal expected2, district.statewide_test.class_data[:math][2012]
         end
       end
