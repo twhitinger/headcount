@@ -7,10 +7,11 @@ class StatewideTest
   def initialize(data = {})
     @class_data = data
   end
-  # [:asian, :black, :pacific_islander, :hispanic, :native_american, :two_or_more, :white]
+
   def proficient_by_grade(grade)
     raise_unknown_data_error(grade)
     @class_data[grade]
+    binding.pry
   end
 
   def statewide_test
@@ -24,20 +25,18 @@ class StatewideTest
   def proficient_by_race_or_ethnicity(race)
     races = [:asian, :black, :pacific_islander, :hispanic,
       :native_american, :two_or_more, :white]
-      raise_unknown_data_error(races.include?(race))
-
-      @class_data[:math][race].map do |year, data|
-        [year, {:math     => data,
-          :reading  => class_data[:reading][race][year],
-          :writing  => class_data[:writing][race][year]}]
-        end.to_h
-      end
-
-
-      def raise_unknown_data_error(grade)
-        raise UnknownDataError unless class_data.keys.include?(grade)
-      end
+    raise_unknown_data_error(races.include?(race))
+    @class_data[:math][race].map do |year, data|
+      [year, {:math     => data,
+        :reading  => class_data[:reading][race][year],
+        :writing  => class_data[:writing][race][year]}]
+      end.to_h
     end
+
+    def raise_unknown_data_error(grade)
+      raise UnknownDataError unless class_data.keys.include?(grade)
+    end
+  end
 
     class UnknownDataError < ArgumentError
     end
