@@ -26,7 +26,6 @@ class StatewideTestRepositoryTest < Minitest::Test
 
 
   def  test_statewide_test_repository_exists
-    skip
     str = StatewideTestRepository.new
     str.load_data({
       :statewide_testing => {

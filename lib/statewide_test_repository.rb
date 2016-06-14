@@ -1,4 +1,5 @@
 require_relative "statewide_test"
+require_relative "math_helper"
 require "csv"
 require "pp"
 
@@ -70,7 +71,7 @@ class StatewideTestRepository
 
   def sanitize_data(input)
     input.to_s.gsub!(/[\s]+/,'')
-    input = input.to_f if String === input
+    input = MathHelper.truncate_float(input.to_f) if String === input
     input
   end
 
