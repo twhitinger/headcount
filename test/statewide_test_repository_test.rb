@@ -1,4 +1,3 @@
-
 require_relative '../lib/statewide_test_repository'
 require_relative '../lib/math_helper'
 require_relative 'test_helper'
