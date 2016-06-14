@@ -7,8 +7,6 @@ class StatewideTestRepository
   attr_accessor :statewide_tests
   def initialize
     @statewide_tests = {}
-    # @wrapper = {}
-
   end
 
   def load_data(file_tree)
@@ -28,17 +26,17 @@ class StatewideTestRepository
           @statewide_tests[location_name] = StatewideTest.new({source => data})
         end
       end
+      @statewide_tests
     end
     # push_statewide_tests_to_statewide_test
-    push_info_to_statewide_test
+    # push_info_to_statewide_test
   end
 
-  def push_info_to_statewide_test
-    statewide_tests.each do |name, data|
-      binding.pry
-      district.enrollment = @enrollment_repo.find_by_name(district.name)
-    end
-  end
+  # def push_info_to_statewide_test
+  #   statewide_tests.each do |name, data|
+  #     data.statewide_test << data
+  #   end
+  # end
 
   def find_by_name(district_name)
     statewide_tests[district_name]
