@@ -10,16 +10,13 @@ class StatewideTest
 
   def proficient_by_grade(grade)
     raise_unknown_data_error(grade)
-    @class_data[grade]
-    binding.pry
+    @class_data["Colorado"].class_data[grade_hash(grade)]
   end
 
-  def statewide_test
-    str.statewide_tests.values[0]
-  end
 
   def grade_hash(grade)
-    {3 => :third, 8 => :eighth}
+    grades = {3 => :third_grade, 8 => :eighth_grade}
+    grades[grade]
   end
 
   def proficient_by_race_or_ethnicity(race)
@@ -33,10 +30,11 @@ class StatewideTest
       end.to_h
     end
 
-    def raise_unknown_data_error(grade)
-      raise UnknownDataError unless class_data.keys.include?(grade)
-    end
-  end
 
+      def raise_unknown_data_error(grade)
+        raise UnknownDataError unless class_data.values[0].class_data.keys.include?(grade_hash(grade))
+      end
+    end
+  
     class UnknownDataError < ArgumentError
     end
