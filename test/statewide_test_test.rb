@@ -10,6 +10,7 @@ class StatewideTestTest < Minitest::Test
 
 
   def test_proficient_by_grade_stored_in_hash
+  
     str = StatewideTestRepository.new
 
     str.load_data({
@@ -29,8 +30,9 @@ class StatewideTestTest < Minitest::Test
     end
 
     def test_proficient_by_grade_ethinic
-      skip
+
       str = StatewideTestRepository.new
+
       str.load_data({
         :statewide_testing => {
           :third_grade => "./data/3rd grade students scoring proficient or above on the CSAP_TCAP.csv",
@@ -40,12 +42,18 @@ class StatewideTestTest < Minitest::Test
           :writing => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Writing.csv"
         }
         })
+        expected = {2011=>{:math=>0.7094, :reading=>0.7697, :writing=>0.6846},
+ 2012=>{:math=>0.7192, :reading=>0.7697, :writing=>0.6846},
+ 2013=>{:math=>0.7323, :reading=>0.7697, :writing=>0.6846},
+ 2014=>{:math=>0.7341, :reading=>0.7697, :writing=>0.6846}}
+        expected2 = {2011=>{:math=>0.6585, :reading=>0.7982, :writing=>0.6473},
+ 2012=>{:math=>0.6618, :reading=>0.7982, :writing=>0.6473},
+ 2013=>{:math=>0.6697, :reading=>0.7982, :writing=>0.6473},
+ 2014=>{:math=>0.6712, :reading=>0.7982, :writing=>0.6473}}
+        statewide_test = StatewideTest.new(str.statewide_tests)
 
-        statewide_test = StatewideTest.new.statewide_test
-        statewide_test = str.statewide_tests
-        statewide_test.proficient_by_race_or_ethnicity(:asian)
-
-        assert_equal [3, 8], statewide_test.class_data.keys
+        assert_equal expected, statewide_test.proficient_by_race_or_ethnicity(:asian)
+        assert_equal expected2, statewide_test.proficient_by_race_or_ethnicity(:white)
       end
 
 
