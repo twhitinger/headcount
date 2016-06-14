@@ -10,7 +10,7 @@ class StatewideTestTest < Minitest::Test
 
 
   def test_proficient_by_grade_stored_in_hash
-  
+    # skip
     str = StatewideTestRepository.new
 
     str.load_data({
@@ -30,7 +30,7 @@ class StatewideTestTest < Minitest::Test
     end
 
     def test_proficient_by_grade_ethinic
-
+      # skip
       str = StatewideTestRepository.new
 
       str.load_data({
@@ -42,19 +42,56 @@ class StatewideTestTest < Minitest::Test
           :writing => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Writing.csv"
         }
         })
-        expected = {2011=>{:math=>0.7094, :reading=>0.7697, :writing=>0.6846},
- 2012=>{:math=>0.7192, :reading=>0.7697, :writing=>0.6846},
- 2013=>{:math=>0.7323, :reading=>0.7697, :writing=>0.6846},
- 2014=>{:math=>0.7341, :reading=>0.7697, :writing=>0.6846}}
-        expected2 = {2011=>{:math=>0.6585, :reading=>0.7982, :writing=>0.6473},
- 2012=>{:math=>0.6618, :reading=>0.7982, :writing=>0.6473},
- 2013=>{:math=>0.6697, :reading=>0.7982, :writing=>0.6473},
- 2014=>{:math=>0.6712, :reading=>0.7982, :writing=>0.6473}}
+        expected = {2011=>{:math=>0.709, :reading=>0.769, :writing=>0.684},
+        2012=>{:math=>0.719, :reading=>0.769, :writing=>0.684},
+        2013=>{:math=>0.732, :reading=>0.769, :writing=>0.684},
+        2014=>{:math=>0.734, :reading=>0.769, :writing=>0.684}}
+        expected2 = {2011=>{:math=>0.658, :reading=>0.798, :writing=>0.647},
+        2012=>{:math=>0.661, :reading=>0.798, :writing=>0.647},
+        2013=>{:math=>0.669, :reading=>0.798, :writing=>0.647},
+        2014=>{:math=>0.671, :reading=>0.798, :writing=>0.647}}
         statewide_test = StatewideTest.new(str.statewide_tests)
 
         assert_equal expected, statewide_test.proficient_by_race_or_ethnicity(:asian)
         assert_equal expected2, statewide_test.proficient_by_race_or_ethnicity(:white)
       end
 
+      def test_proficient_by_grade_in_year
+        # skip
 
-    end
+        str = StatewideTestRepository.new
+
+        str.load_data({
+          :statewide_testing => {
+            :third_grade => "./data/3rd grade students scoring proficient or above on the CSAP_TCAP.csv",
+            :eighth_grade => "./data/8th grade students scoring proficient or above on the CSAP_TCAP.csv",
+            :math => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Math.csv",
+            :reading => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Reading.csv",
+            :writing => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Writing.csv"
+          }
+          })
+          statewide_test = StatewideTest.new(str.statewide_tests)
+          # statewide_test.proficient_for_subject_by_grade_in_year(:math, 3, 2008)
+          assert_equal 0.697, statewide_test.proficient_for_subject_by_grade_in_year(:math, 3, 2008)
+          assert_equal 0.671, statewide_test.proficient_for_subject_by_grade_in_year(:reading, 8, 2012)
+        end
+
+        def test_proficient_for_subject_by_race_in_year
+          str = StatewideTestRepository.new
+          str.load_data({
+            :statewide_testing => {
+              :third_grade => "./data/3rd grade students scoring proficient or above on the CSAP_TCAP.csv",
+              :eighth_grade => "./data/8th grade students scoring proficient or above on the CSAP_TCAP.csv",
+              :math => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Math.csv",
+              :reading => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Reading.csv",
+              :writing => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Writing.csv"
+            }
+            })
+            statewide_test = StatewideTest.new(str.statewide_tests)
+
+            assert_equal 0.719, statewide_test.proficient_for_subject_by_race_in_year(:math, :asian, 2012)
+            assert_equal 0.789, statewide_test.proficient_for_subject_by_race_in_year(:reading, :white, 2011)
+          end
+
+
+        end

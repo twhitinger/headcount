@@ -18,7 +18,14 @@ class StatewideTest
     grades[grade]
   end
 
+  def race_keys(race)
+    array = [:asian, :black, :pacific_islander, :hispanic, :native_american, :two_or_more, :white]
+
+    array.include?(race)
+  end
+
   def proficient_by_race_or_ethnicity(race)
+    raise_unknown_race_error(race)
     collection = {}
     data = @class_data["Colorado"].class_data
     data[:math].each do |year|
@@ -31,12 +38,30 @@ class StatewideTest
     collection
   end
 
+  def proficient_for_subject_by_grade_in_year(subject, grade, year)
+    sub_arr = [:math, :reading, :writing]
+    raise UnknownDataError unless sub_arr.include?(subject)
+    @class_data["Colorado"].class_data[grade_hash(grade)][year][subject]
+  end
 
+  def proficient_for_subject_by_race_in_year(subject, race, year)
+    sub_arr = [:math, :reading, :writing]
+    raise UnknownDataError unless sub_arr.include?(subject)
+    @class_data["Colorado"].class_data[subject][year][race]
+  end
+
+  def raise_unknown_race_error(race)
+    raise UnknownRaceError unless race_keys(race)
+  end
 
   def raise_unknown_data_error(grade)
     raise UnknownDataError unless class_data.values[0].class_data.keys.include?(grade_hash(grade))
   end
+
+
 end
 
 class UnknownDataError < ArgumentError
+end
+class UnknownRaceError < ArgumentError
 end
