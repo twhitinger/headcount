@@ -5,13 +5,13 @@ require "pp"
 class StatewideTestRepository
   attr_reader :tests, :statewide_tests
   def initialize
-    @statewide_tests = []
+    @statewide_tests = {}
+    @store_all_files = {}
   end
 
   def load_data(file_tree)
     filepath = file_tree[:statewide_testing]
     filepath.each do |source, filename|
-
       years = CSV.readlines(filename, headers: true, header_converters: :symbol).map(&:to_h)
       scores_by_location = years.group_by do |row|
         row[:location]
@@ -19,9 +19,16 @@ class StatewideTestRepository
       shit_together = scores_by_location.each_with_object({}) do |(name, district_data), subject_data|
         single_district_data(name, district_data, subject_data)
       end
-      # need to connect statewide_test
-      @statewide_tests << StatewideTest.new(shit_together) if source == :third_grade
+      if source == :third_grade
+        @store_all_files[3] = shit_together
+      else
+        @store_all_files[8] = shit_together
+
+        # need to connect statewide_test
+      end
+
     end
+    @statewide_tests = StatewideTest.new(@store_all_files)
   end
 
   def find_by_name(district_name)
