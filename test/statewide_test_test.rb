@@ -10,19 +10,17 @@ class StatewideTestTest < Minitest::Test
 
 
   def test_proficient_by_grade_stored_in_hash
-
+    
     str = StatewideTestRepository.new
     str.load_data({
       :statewide_testing => {
         :third_grade => "./data/3rd grade students scoring proficient or above on the CSAP_TCAP.csv",
         :eighth_grade => "./data/8th grade students scoring proficient or above on the CSAP_TCAP.csv"
-        # :math => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Math.csv",
-        # :reading => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Reading.csv",
-        # :writing => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Writing.csv"
       }
       })
 
-      statewide_test = StatewideTest.new.statewide_test
+      binding.pry
+
       statewide_test = str.statewide_tests
       statewide_test.proficient_by_grade(3)
       statewide_test.proficient_by_grade(8)
@@ -32,7 +30,7 @@ class StatewideTestTest < Minitest::Test
     end
 
     def test_proficient_by_grade_ethinic
-
+      skip
       str = StatewideTestRepository.new
       str.load_data({
         :statewide_testing => {
@@ -46,7 +44,6 @@ class StatewideTestTest < Minitest::Test
 
         statewide_test = StatewideTest.new.statewide_test
         statewide_test = str.statewide_tests
-        binding.pry
         statewide_test.proficient_by_race_or_ethnicity(:asian)
 
         assert_equal [3, 8], statewide_test.class_data.keys

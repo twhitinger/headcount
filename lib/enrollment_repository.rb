@@ -4,7 +4,7 @@ require "pp"
 
 class EnrollmentRepository
   attr_reader :enrollments
-  
+
   def initialize(enrollments = [])
     @enrollments = enrollments
   end
@@ -24,7 +24,6 @@ class EnrollmentRepository
         @grade_id = (source.to_s + "_participation").to_sym
         { name: name.upcase, @grade_id => merged }
       end
-
       enrollment_data.each do |data|
         if find_by_name(data[:name])
           find_by_name(data[:name]).high_school_data.merge!({name: data[:name], @grade_id => data[@grade_id]})

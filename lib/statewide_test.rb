@@ -2,7 +2,8 @@ require_relative '../lib/math_helper'
 require_relative '../lib/statewide_test_repository'
 
 class StatewideTest
-  attr_reader :class_data, :statewide_test
+  attr_reader :class_data
+  attr_accessor :statewide_test
   def initialize(data = {})
     @class_data = data
   end
@@ -10,6 +11,14 @@ class StatewideTest
   def proficient_by_grade(grade)
     raise_unknown_data_error(grade)
     @class_data[grade]
+  end
+
+  def statewide_test
+    str.statewide_tests.values[0]
+  end
+
+  def grade_hash(grade)
+    {3 => :third, 8 => :eighth}
   end
 
   def proficient_by_race_or_ethnicity(race)
