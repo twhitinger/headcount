@@ -1,14 +1,16 @@
 require_relative "enrollment_repository"
+require_relative "statewide_test_repository"
 require_relative "district"
 require "csv"
 require "pp"
 
 class DistrictRepository
   attr_reader :districts, :enrollment_repo
-  
+
   def initialize(attributes = [])
     @districts = attributes
     @enrollment_repo = EnrollmentRepository.new
+    @statewide_test_repository = StatewideTestRepository.new
   end
 
   def find_by_name(name)
@@ -24,6 +26,7 @@ class DistrictRepository
   def load_data(repo_id)
     generate_district_repo(repo_id)
     repo_id.each do |repo_type, files|
+      binding.pry
       auto_generate_repo(repo_type, files)
     end
     push_info_to_district
@@ -39,6 +42,7 @@ class DistrictRepository
   end
 
   def auto_generate_repo(repo_type, file_tree)
+    binding.pry
     repositories = {enrollment: @enrollment_repo}
     repo = repositories[repo_type]
     repo.load_data({repo_type => file_tree})
@@ -47,6 +51,8 @@ class DistrictRepository
   def push_info_to_district
     districts.each do |district|
       district.enrollment = @enrollment_repo.find_by_name(district.name)
+      district.statewide_test = @statewide_test_repository.find_by_name(district.name)
+      binding.pry
     end
   end
 end
