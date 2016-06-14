@@ -14,7 +14,7 @@ class StatewideTestRepositoryTest < Minitest::Test
       str1 = str.find_by_name("ACADEMY 20")
       str2 = str.find_by_name("Muck the freeworld")
       str3 = str.find_by_name("Colorado")
-      
+
       expected = {2008=>{:math=>0.857, :reading=>0.866, :writing=>0.671}}
       expected2 = {2009=>{:math=>0.824, :reading=>0.862, :writing=>0.706}}
 
