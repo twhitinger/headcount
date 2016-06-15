@@ -6,6 +6,7 @@ class HeadcountAnalyst
     @district_repo = district_repo
     @statewide = []
     @passed_average_filter = []
+    @passed_lunch_filter = []
     @avg_hash
   end
 
@@ -96,22 +97,19 @@ class HeadcountAnalyst
 
 
     def high_poverty_and_high_school_graduation
-      generate_all_averages
+      average_for_each_district_qualify_for_free_lunch
+      average_for_each_district_poverty
 
     end
 
-    def average_for_each_district(symbol_id)
+    def average_for_each_district_poverty
       total = @district_repo.districts.find_all do |school|
-        if symbol_id == :high_school_graduation_participation
-          school.enrollment.high_school_data[symbol_id]
-        else
-          school.economic_profile.economic_data[symbol_id]
-        end
+        school.economic_profile.economic_data[:children_in_poverty]
       end
       total.map do |school|
-        average = school.economic_profile.economic_data[symbol_id].values.reduce(:+)/
-        school.economic_profile.economic_data[symbol_id].length
-        is_it = average > poverty_average_for_all_districts
+        average = school.economic_profile.economic_data[:children_in_poverty].values.reduce(:+)/
+        school.economic_profile.economic_data[:children_in_poverty].length
+        is_it = average > average_for_all_districts_poverty
 
         # if the district is greater then the average poverty
         # pass it to the next method qualify for free lunch method
@@ -120,40 +118,40 @@ class HeadcountAnalyst
       end
     end
 
-    def average_for_all_districts(symbol_id)
+    def average_for_all_districts_poverty
       total = @district_repo.districts.find_all do |school|
-        if symbol_id == :high_school_graduation_participation
-          school.enrollment.high_school_data[symbol_id]
-        else
-          school.economic_profile.economic_data[symbol_id]
-        end
+        school.economic_profile.economic_data[:children_in_poverty]
       end
       values = total.reduce([]) do |result, school|
-        if symbol_id == :free_or_reduced_price_lunch
-          binding.pry
-          all_values = school.economic_profile.economic_data[symbol_id][:total]
-        else
-        all_values = school.economic_profile.economic_data[symbol_id].values
-       end
+        all_values = school.economic_profile.economic_data[:children_in_poverty].values
         result << all_values
         result
       end.flatten
-      binding.pry
       average = values.reduce(:+)/values.count
     end
 
-    def generate_all_averages
-      symbols = [:children_in_poverty, :free_or_reduced_price_lunch, :high_school_graduation_participation]
-      @avg_hash = symbols.reduce({}) do |result, symbol|
-
-        result[symbol] = average_for_all_districts(symbol)
+    def average_for_each_district_qualify_for_free_lunch
+      total = @district_repo.districts.find_all do |school|
+        school.economic_profile.economic_data[:children_in_poverty]
       end
-      binding.pry
+      total.map do |school|
+        average = school.economic_profile.economic_data[:free_or_reduced_price_lunch]
+        each_avg = average.reduce([]) do |result, data|
+          result << data.last[:total]
+        end
+        final_avg = each_avg.reduce(:+)/each_avg.length
+        is_it = final_avg > average_for_all_districts_qualify_for_free_lunch
+        @passed_lunch_filter << school if is_it
+      end
     end
 
-
-    def qualify_for_free_lunch
-
+    def average_for_all_districts_qualify_for_free_lunch
+      total = @district_repo.districts[0].economic_profile.economic_data[:free_or_reduced_price_lunch].values
+      values = total.reduce([]) do |result, data|
+        result << data[:total]
+        result
+      end.flatten
+      average = values.reduce(:+)/values.count/@district_repo.districts.length
       # Above the statewide average in number of students qualifying for free and reduced price lunch
     end
 
