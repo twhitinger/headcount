@@ -6,6 +6,7 @@ class StatewideTest
   def initialize(data = {})
     @class_data = data
     @formatted_hash = {}
+    @embedded_hash = {}
   end
 
   def proficient_by_grade(grade)
@@ -26,19 +27,20 @@ class StatewideTest
   end
 
   def proficient_by_race_or_ethnicity(race)
-    raise_unknown_race_error(race)
-    collection = {}
-    class_data[:math].each do |year|
-      class_data[:reading].each do |scores|
-        class_data[:writing].each do |info|
-          collection[year[0]] = {:math => year[1][race],
-            :reading => scores[1][race], :writing => info[1][race] }
-        end
-      end
+    class_data[:math].keys.each do |year|
+      make_hash_entry(year, race)
+      @formatted_hash[year] = @embedded_hash
     end
-    collection
+    @formatted_hash
   end
 
+  def make_hash_entry(year, race)
+    @embedded_hash = {}
+    @embedded_hash[:math] = class_data[:math][year][race]
+    @embedded_hash[:reading] = class_data[:reading][year][race]
+    @embedded_hash[:writing] = class_data[:writing][year][race]
+  end
+  
   def proficient_for_subject_by_grade_in_year(subject, grade, year)
     sub_arr = [:math, :reading, :writing]
     raise UnknownDataError unless sub_arr.include?(subject)
