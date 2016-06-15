@@ -40,7 +40,7 @@ class StatewideTest
     @embedded_hash[:reading] = class_data[:reading][year][race]
     @embedded_hash[:writing] = class_data[:writing][year][race]
   end
-  
+
   def proficient_for_subject_by_grade_in_year(subject, grade, year)
     sub_arr = [:math, :reading, :writing]
     raise UnknownDataError unless sub_arr.include?(subject)
