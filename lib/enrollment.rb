@@ -15,7 +15,7 @@ class Enrollment
   end
 
   def kindergarten_participation_in_year(year)
-   kindergarten_participation_by_year[year]
+   MathHelper.truncate_float(kindergarten_participation_by_year[year])
   end
 
   def graduation_rate_by_year
@@ -26,6 +26,6 @@ class Enrollment
   end
 
   def graduation_rate_in_year(year)
-    graduation_rate_by_year[year]
+    MathHelper.truncate_float(graduation_rate_by_year[year])
   end
 end
