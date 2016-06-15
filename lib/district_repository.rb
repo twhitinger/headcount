@@ -1,16 +1,18 @@
 require_relative "enrollment_repository"
 require_relative "statewide_test_repository"
 require_relative "district"
+require_relative "economic_profile_repository"
 require "csv"
 require "pp"
 
 class DistrictRepository
-  attr_reader :districts, :enrollment_repo
+  attr_reader :districts, :enrollment_repo, :economic_repo, :statewide_repo
 
   def initialize(attributes = [])
     @districts = attributes
     @enrollment_repo = EnrollmentRepository.new
     @statewide_repo = StatewideTestRepository.new
+    @economic_repo   = EconomicProfileRepository.new
   end
 
   def find_by_name(name)
@@ -43,7 +45,8 @@ class DistrictRepository
 
   def auto_generate_repo(repo_type, file_tree)
     repositories = {enrollment: @enrollment_repo,
-               statewide_testing: @statewide_repo}
+               statewide_testing: @statewide_repo,
+               economic_profile: @economic_repo}
 
     repo = repositories[repo_type]
     repo.load_data({repo_type => file_tree})
@@ -53,6 +56,7 @@ class DistrictRepository
     districts.each do |district|
       district.enrollment = @enrollment_repo.find_by_name(district.name)
       district.statewide_test = @statewide_repo.find_by_name(district.name)
+      district.economic_profile = @economic_repo.find_by_name(district.name)
     end
   end
 end

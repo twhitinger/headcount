@@ -27,7 +27,25 @@ class StatewideTest
 
   def proficient_by_race_or_ethnicity(race)
     raise_unknown_race_error(race)
-    collection = {}
+ #    # collection = {:math => math}
+ #      # :reading => scores[1][race], :writing => info[1][race]
+ #    # symbol = [:math, :reading, :writing]
+ #    # symbol.each do |symbol|
+ #  math = class_data.reduce({}) do |result, obj|
+ #    binding.pry
+ #    if obj.first[:math]
+ #      if result[obj[0]].nil?
+ #        result[obj[0]] = {:math => obj[1][race]}
+ #      elsif result[obj[0]]
+ #
+ #
+ #    if result[obj[0]].nil?
+ #     result[obj[0]] = {:math => obj[1][race]}
+ #   end
+ # end
+ # collection = {:math => math}
+ # binding.pry
+ # end
     class_data[:math].each do |year|
       class_data[:reading].each do |scores|
         class_data[:writing].each do |info|
