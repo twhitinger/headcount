@@ -20,19 +20,19 @@ class StatewideTestTest < Minitest::Test
       }
       })
       e1 = {2008=>{:math=>0.697, :reading=>0.703, :writing=>0.501},
- 2009=>{:math=>0.691, :reading=>0.726, :writing=>0.536},
- 2010=>{:math=>0.706, :reading=>0.698, :writing=>0.504},
- 2011=>{:math=>0.696, :reading=>0.728, :writing=>0.513},
- 2012=>{:reading=>0.739, :math=>0.71, :writing=>0.525},
- 2013=>{:math=>0.722, :reading=>0.732, :writing=>0.509},
- 2014=>{:math=>0.715, :reading=>0.715, :writing=>0.51}}
+            2009=>{:math=>0.691, :reading=>0.726, :writing=>0.536},
+            2010=>{:math=>0.706, :reading=>0.698, :writing=>0.504},
+            2011=>{:math=>0.696, :reading=>0.728, :writing=>0.513},
+            2012=>{:reading=>0.739, :math=>0.71, :writing=>0.525},
+            2013=>{:math=>0.722, :reading=>0.732, :writing=>0.509},
+            2014=>{:math=>0.715, :reading=>0.715, :writing=>0.51}}
       e2 = {2008=>{:math=>0.469, :reading=>0.703, :writing=>0.529},
- 2009=>{:math=>0.499, :reading=>0.726, :writing=>0.528},
- 2010=>{:math=>0.51, :reading=>0.679, :writing=>0.549},
- 2011=>{:reading=>0.67, :math=>0.513, :writing=>0.543},
- 2012=>{:math=>0.515, :writing=>0.548, :reading=>0.671},
- 2013=>{:math=>0.514, :reading=>0.668, :writing=>0.557},
- 2014=>{:math=>0.523, :reading=>0.663, :writing=>0.561}}
+            2009=>{:math=>0.499, :reading=>0.726, :writing=>0.528},
+            2010=>{:math=>0.51, :reading=>0.679, :writing=>0.549},
+            2011=>{:reading=>0.67, :math=>0.513, :writing=>0.543},
+            2012=>{:math=>0.515, :writing=>0.548, :reading=>0.671},
+            2013=>{:math=>0.514, :reading=>0.668, :writing=>0.557},
+            2014=>{:math=>0.523, :reading=>0.663, :writing=>0.561}}
 
       statewide_test = str.find_by_name("Colorado")
 
@@ -54,14 +54,14 @@ class StatewideTestTest < Minitest::Test
           :writing => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Writing.csv"
         }
         })
-        expected = {2011=>{:math=>0.709, :reading=>0.769, :writing=>0.684},
-        2012=>{:math=>0.719, :reading=>0.769, :writing=>0.684},
-        2013=>{:math=>0.732, :reading=>0.769, :writing=>0.684},
-        2014=>{:math=>0.734, :reading=>0.769, :writing=>0.684}}
-        expected2 = {2011=>{:math=>0.658, :reading=>0.798, :writing=>0.647},
-        2012=>{:math=>0.661, :reading=>0.798, :writing=>0.647},
-        2013=>{:math=>0.669, :reading=>0.798, :writing=>0.647},
-        2014=>{:math=>0.671, :reading=>0.798, :writing=>0.647}}
+        expected = {2011=>{:math=>0.709, :reading=>0.748, :writing=>0.656},
+                    2012=>{:math=>0.719, :reading=>0.757, :writing=>0.658},
+                    2013=>{:math=>0.732, :reading=>0.769, :writing=>0.682},
+                    2014=>{:math=>0.734, :reading=>0.769, :writing=>0.684}}
+        expected2 = {2011=>{:math=>0.658, :reading=>0.789, :writing=>0.663},
+                     2012=>{:math=>0.661, :reading=>0.802, :writing=>0.644},
+                     2013=>{:math=>0.669, :reading=>0.799, :writing=>0.655},
+                     2014=>{:math=>0.671, :reading=>0.798, :writing=>0.647}}
 
         statewide_test = str.find_by_name("Colorado")
 
