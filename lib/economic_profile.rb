@@ -4,9 +4,11 @@ class EconomicProfile
     # This method takes one parameter:
     #
     # year as an integer
-    # A call to this method with an unknown year should raise an UnknownDataError.
+    # A call to this method with an unknown year should raise an
+    # UnknownDataError.
     #
-    # To derive this number, we will average the values for all of the year ranges in which your requested year appears.
+    # To derive this number, we will average the values for all of the year
+    # ranges in which your requested year appears.
     #
     # The method returns an integer.
     #
@@ -19,8 +21,10 @@ class EconomicProfile
   end
 
   def median_household_income_average
-    # This method takes no parameters. It returns an integer averaging the known median household incomes.
-    # This should be an average of the reported income from all the available year ranges.
+    # This method takes no parameters. It returns an integer averaging the
+    # known median household incomes.
+    # This should be an average of the reported income from all the available
+    # year ranges.
     #
     # Example:
     #
@@ -32,7 +36,8 @@ class EconomicProfile
     # This method takes one parameter:
     #
     # year as an integer
-    # A call to this method with an unknown year should raise an UnknownDataError.
+    # A call to this method with an unknown year should raise an
+    # UnknownDataError.
     #
     # The method returns a float representing a percentage.
     #
@@ -46,7 +51,8 @@ class EconomicProfile
     # This method takes one parameter:
     #
     # year as an integer
-    # A call to this method with an unknown year should raise an UnknownDataError.
+    # A call to this method with an unknown year should raise an
+    # UnknownDataError.
     #
     # The method returns a float representing a percentage.
     #
@@ -60,9 +66,11 @@ class EconomicProfile
     # This method takes one parameter:
     #
     # year as an integer
-    # A call to this method with an unknown year should raise an UnknownDataError.
+    # A call to this method with an unknown year should raise an
+    # UnknownDataError.
     #
-    # The method returns an integer representing the total number of children on Free or Reduced Price Lunch in that year.
+    # The method returns an integer representing the total number of children
+    # on Free or Reduced Price Lunch in that year.
     #
     # Example:
     #
@@ -75,7 +83,8 @@ class EconomicProfile
     # This method takes one parameter:
     #
     # year as an integer
-    # A call to this method with an unknown year should raise an UnknownDataError.
+    # A call to this method with an unknown year should raise an
+    # UnknownDataError.
     #
     # The method returns a float representing a percentage.
     #

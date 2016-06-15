@@ -15,16 +15,17 @@ class Enrollment
   end
 
   def kindergarten_participation_in_year(year)
-   kindergarten_participation_by_year[year]
+   MathHelper.truncate_float(kindergarten_participation_by_year[year])
   end
 
   def graduation_rate_by_year
-    high_school_data[:high_school_graduation_participation].reduce({}) do |result, pair|
+    high_school_data[:high_school_graduation_participation]\
+    .reduce({}) do |result, pair|
       result.merge(pair.first => MathHelper.truncate_float(pair.last))
     end
   end
 
   def graduation_rate_in_year(year)
-    graduation_rate_by_year[year]
+    MathHelper.truncate_float(graduation_rate_by_year[year])
   end
 end

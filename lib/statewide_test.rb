@@ -19,7 +19,8 @@ class StatewideTest
   end
 
   def race_keys(race)
-    array = [:asian, :black, :pacific_islander, :hispanic, :native_american, :two_or_more, :white]
+    array = [:asian, :black, :pacific_islander, :hispanic,
+             :native_american, :two_or_more, :white]
 
     array.include?(race)
   end
@@ -31,7 +32,8 @@ class StatewideTest
     data[:math].each do |year|
       data[:reading].each do |scores|
         data[:writing].each do |info|
-          collection[year[0]] = {:math => year[1][race], :reading => scores[1][race], :writing => info[1][race] }
+          collection[year[0]] = {:math => year[1][race],
+            :reading => scores[1][race], :writing => info[1][race] }
         end
       end
     end
@@ -55,7 +57,8 @@ class StatewideTest
   end
 
   def raise_unknown_data_error(grade)
-    raise UnknownDataError unless class_data.values[0].class_data.keys.include?(grade_hash(grade))
+    raise UnknownDataError unless class_data.values[0].class_data.keys.include?\
+    (grade_hash(grade))
   end
 
 

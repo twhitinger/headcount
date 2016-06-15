@@ -8,18 +8,25 @@ class HeadcountAnalyst
   end
 
   def kindergarten_participation_rate_variation(location_one, location_two)
-    location_one_average = compute_kindergartner_participation_average(location_one)
-    location_two_average = compute_kindergartner_participation_average(location_two[:against])
+    location_one_average =
+    compute_kindergartner_participation_average(location_one)
+    location_two_average =
+    compute_kindergartner_participation_average(location_two[:against])
     MathHelper.truncate_float(location_one_average/location_two_average)
   end
 
   def compute_kindergartner_participation_average(location_name)
     location = @district_repo.find_by_name(location_name)
-    location.enrollment.kindergarten_data[:kindergarten_participation].values.reduce(:+)/
+    statewide = @district_repo.find_by_name("Colorado")
+    loc_avg = location.enrollment.kindergarten_data[:kindergarten_participation].values.reduce(:+)/
     location.enrollment.kindergarten_data[:kindergarten_participation].length
+    sw_avg = statewide.enrollment.kindergarten_data[:kindergarten_participation].values.reduce(:+)/
+    location.enrollment.kindergarten_data[:kindergarten_participation].length
+    loc_avg/sw_avg
   end
 
-  def kindergarten_participation_rate_variation_trend(location_one, location_two)
+  def kindergarten_participation_rate_variation_trend(location_one,
+      location_two)
     location1 = @district_repo.find_by_name(location_one)
     loc1 = location1.enrollment.kindergarten_data[:kindergarten_participation]
     location2 = @district_repo.find_by_name(location_two[:against])
@@ -29,8 +36,14 @@ class HeadcountAnalyst
 
   def compute_hs_grad_participation_avg(location_name)
     location = @district_repo.find_by_name(location_name)
-    location.enrollment.high_school_data[:high_school_graduation_participation].values.reduce(:+)/
-    location.enrollment.high_school_data[:high_school_graduation_participation].length
+    statewide = @district_repo.find_by_name("Colorado")
+    loc_avg = location.enrollment.high_school_data[:high_school_graduation_participation].values.reduce(:+)/
+    location.enrollment.high_school_data[:high_school_graduation_participation]\
+    .length
+    sw_avg = statewide.enrollment.high_school_data[:high_school_graduation_participation].values.reduce(:+)/
+    location.enrollment.high_school_data[:high_school_graduation_participation]\
+    .length
+    loc_avg/sw_avg
   end
 
   def kindergarten_participation_against_high_school_graduation(location_one)
@@ -39,13 +52,15 @@ class HeadcountAnalyst
     MathHelper.truncate_float(kg_avg/hs_avg)
   end
 
-  def kindergarten_participation_correlates_with_high_school_graduation(location)
+  def kindergarten_participation_correlates_with_high_school_graduation\
+    (location)
     if location[:for] == "STATEWIDE"
       return loop_through_all_schools
     elsif location[:across]
       loop_through_selected_schools(location[:across])
     else
-      correlation = kindergarten_participation_against_high_school_graduation(location[:for])
+      correlation =
+      kindergarten_participation_against_high_school_graduation(location[:for])
       correlation.between?(0.6, 1.5)
     end
   end
@@ -55,6 +70,7 @@ class HeadcountAnalyst
       kg = compute_kindergartner_participation_average(school)
       hs = compute_hs_grad_participation_avg(school)
       correlation = MathHelper.truncate_float(kg/hs)
+      correlation.between?(0.6, 1.5)
     end
     compare_statewide_correlation(array)
   end
@@ -64,7 +80,8 @@ class HeadcountAnalyst
       kg = compute_kindergartner_participation_average(school.name)
       hs = compute_hs_grad_participation_avg(school.name)
       correlation = MathHelper.truncate_float(kg/hs)
-      @statewide << correlation.between?(0.6, 1.5) unless school.name == "COLORADO"
+      @statewide << correlation.between?(0.6, 1.5)\
+       unless school.name == "COLORADO"
     end
     compare_statewide_correlation
   end
