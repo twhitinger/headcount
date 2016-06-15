@@ -29,15 +29,7 @@ class StatewideTestRepository
       end
       @statewide_tests
     end
-    # push_statewide_tests_to_statewide_test
-    # push_info_to_statewide_test
   end
-
-  # def push_info_to_statewide_test
-  #   statewide_tests.each do |name, data|
-  #     data.statewide_test << data
-  #   end
-  # end
 
   def find_by_name(district_name)
     statewide_tests[district_name]
@@ -83,19 +75,3 @@ class StatewideTestRepository
     end
   end
 end
-
-
-
-
-
-# if source == :third_grade
-#   @store_all_files[shit_together]
-# elsif source == :eighth_grade
-#   @store_all_files[8] = shit_together
-# elsif source == :math
-#   @store_all_files[:math] = shit_together
-# elsif source == :reading
-#   @store_all_files[:reading] = shit_together
-# else
-#   @store_all_files[:writing] = shit_together
-# end

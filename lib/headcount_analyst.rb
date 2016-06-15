@@ -41,7 +41,7 @@ class HeadcountAnalyst
 
   def kindergarten_participation_correlates_with_high_school_graduation(location)
     if location[:for] == "STATEWIDE"
-      return loop_through_all_schools
+      loop_through_all_schools
     elsif location[:across]
       loop_through_selected_schools(location[:across])
     else
