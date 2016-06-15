@@ -23,13 +23,16 @@ class StatewideTestRepository
         single_district_data(name, district_data, subject_data)
       end
       shit_together.each do |location_name, data|
+
         if find_by_name(location_name)
           find_by_name(location_name).class_data[source] = data
         else
           @statewide_tests[location_name] = StatewideTest.new({source => data})
         end
       end
-      @statewide_tests
+      # @statewide_tests.each do |key, value|
+      #   find_by_name(key).formatted_hash[key] = value
+      #   end
     end
     # push_statewide_tests_to_statewide_test
     # push_info_to_statewide_test
@@ -42,7 +45,9 @@ class StatewideTestRepository
   # end
 
   def find_by_name(district_name)
-    statewide_tests[district_name]
+
+      statewide_tests[district_name]
+
   end
 
   def single_subject_data(year, data, district_data)
