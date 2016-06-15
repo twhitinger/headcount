@@ -2,15 +2,15 @@ require_relative '../lib/math_helper'
 require_relative '../lib/statewide_test_repository'
 
 class StatewideTest
-  attr_reader :class_data
-  attr_accessor :statewide_test
+  attr_accessor :statewide_test, :class_data, :formatted_hash
   def initialize(data = {})
     @class_data = data
+    @formatted_hash = {}
   end
 
   def proficient_by_grade(grade)
-    raise_unknown_data_error(grade)
-    @class_data["Colorado"].class_data[grade_hash(grade)]
+    # raise_unknown_data_error(grade)
+    class_data[grade_hash(grade)]
   end
 
   def grade_hash(grade)
