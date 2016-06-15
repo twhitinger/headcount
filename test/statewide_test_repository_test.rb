@@ -37,7 +37,6 @@ class StatewideTestRepositoryTest < Minitest::Test
       })
       expected = {:math=>0.857, :reading=>0.866, :writing=>0.671}
       expected2 = {:math=>0.697, :reading=>0.703, :writing=>0.501}
-      binding.pry
       str1 = str.find_by_name("ACADEMY 20").class_data[:third_grade][2008]
       str2 = str.find_by_name("Muck the freeworld")
       str3 = str.find_by_name("Colorado").class_data[:third_grade][2008]
