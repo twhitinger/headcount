@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-06-15T14:16:15-06:00">2016-06-15T14:16:15-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-06-15T16:18:52-06:00">2016-06-15T16:18:52-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -153,7 +153,7 @@
       <tr>
         <td class="strong"><a href="#bb7eb482fe346847dbfdf5efb33b9441c683b99d" class="src_link" title="test/headcount_analyst_test.rb">test/headcount_analyst_test.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>120</td>
+        <td>118</td>
         <td>47</td>
         <td>47</td>
         <td>0</td>
@@ -4343,472 +4343,460 @@
         <li class="covered" data-hits="1" data-linenumber="42">
           <span class="hits">1</span>
           
-          <code class="ruby">    assert_equal ({2007=&gt;0.992,</code>
+          <code class="ruby">    assert_equal ({2007=&gt;0.992, 2006=&gt;1.05, 2005=&gt;0.96, 2004=&gt;1.257,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="43">
           
           
-          <code class="ruby">                  2006=&gt;1.05,</code>
+          <code class="ruby">                  2008=&gt;0.717, 2009=&gt;0.652, 2010=&gt;0.681, 2011=&gt;0.727,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="44">
           
           
-          <code class="ruby">                  2005=&gt;0.96,</code>
+          <code class="ruby">                  2012=&gt;0.688, 2013=&gt;0.694, 2014=&gt;0.661}),</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="45">
           
           
-          <code class="ruby">                  2004=&gt;1.257,</code>
+          <code class="ruby">      ha.kindergarten_participation_rate_variation_trend(&#39;ACADEMY 20&#39;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="46">
           
           
-          <code class="ruby">                  2008=&gt;0.717,</code>
+          <code class="ruby">      :against =&gt; &#39;COLORADO&#39;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="47">
           
           
-          <code class="ruby">                  2009=&gt;0.652,</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="48">
           
           
-          <code class="ruby">                  2010=&gt;0.681, 2011=&gt;0.727, 2012=&gt;0.688, 2013=&gt;0.694, 2014=&gt;0.661}),ha.kindergarten_participation_rate_variation_trend(&#39;ACADEMY 20&#39;, :against =&gt; &#39;COLORADO&#39;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="49">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="50">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="51">
+        <li class="covered" data-hits="1" data-linenumber="49">
           <span class="hits">1</span>
           
           <code class="ruby">  def test_kindergarten_vs_high_school</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="52">
+        <li class="never" data-hits="" data-linenumber="50">
           
           
           <code class="ruby">      # skip</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="53">
+        <li class="covered" data-hits="1" data-linenumber="51">
           <span class="hits">1</span>
           
           <code class="ruby">    dr = DistrictRepository.new</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="54">
+        <li class="covered" data-hits="1" data-linenumber="52">
           <span class="hits">1</span>
           
           <code class="ruby">    dr.load_data({</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="53">
+          
+          
+          <code class="ruby">      :enrollment =&gt; {</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="54">
+          
+          
+          <code class="ruby">        :kindergarten =&gt; &quot;./data/Kindergartners in full-day program.csv&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="55">
           
           
-          <code class="ruby">      :enrollment =&gt; {</code>
+          <code class="ruby">        :high_school_graduation =&gt; &quot;./data/High school graduation rates.csv&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="56">
           
           
-          <code class="ruby">        :kindergarten =&gt; &quot;./data/Kindergartners in full-day program.csv&quot;,</code>
+          <code class="ruby">      }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="57">
           
           
-          <code class="ruby">        :high_school_graduation =&gt; &quot;./data/High school graduation rates.csv&quot;</code>
+          <code class="ruby">    })</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="58">
+        <li class="covered" data-hits="1" data-linenumber="58">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      }</code>
+          <code class="ruby">    ha = HeadcountAnalyst.new(dr)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="59">
           
           
-          <code class="ruby">    })</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="60">
           <span class="hits">1</span>
           
-          <code class="ruby">    ha = HeadcountAnalyst.new(dr)</code>
+          <code class="ruby">    assert_equal 0.641, ha.kindergarten_participation_against_high_school_graduation(&#39;ACADEMY 20&#39;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="61">
           
           
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="62">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    assert_equal 0.641, ha.kindergarten_participation_against_high_school_graduation(&#39;ACADEMY 20&#39;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="63">
-          
-          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="64">
+        <li class="never" data-hits="" data-linenumber="62">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="65">
+        <li class="covered" data-hits="1" data-linenumber="63">
           <span class="hits">1</span>
           
           <code class="ruby">  def test_kindergarten_vs_high_school_prediction</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="66">
+        <li class="never" data-hits="" data-linenumber="64">
           
           
           <code class="ruby">      # skip</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="67">
+        <li class="covered" data-hits="1" data-linenumber="65">
           <span class="hits">1</span>
           
           <code class="ruby">    dr = DistrictRepository.new</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="68">
+        <li class="covered" data-hits="1" data-linenumber="66">
           <span class="hits">1</span>
           
           <code class="ruby">    dr.load_data({</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="67">
+          
+          
+          <code class="ruby">      :enrollment =&gt; {</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="68">
+          
+          
+          <code class="ruby">        :kindergarten =&gt; &quot;./data/Kindergartners in full-day program.csv&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="69">
           
           
-          <code class="ruby">      :enrollment =&gt; {</code>
+          <code class="ruby">        :high_school_graduation =&gt; &quot;./data/High school graduation rates.csv&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="70">
           
           
-          <code class="ruby">        :kindergarten =&gt; &quot;./data/Kindergartners in full-day program.csv&quot;,</code>
+          <code class="ruby">      }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="71">
           
           
-          <code class="ruby">        :high_school_graduation =&gt; &quot;./data/High school graduation rates.csv&quot;</code>
+          <code class="ruby">    })</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="72">
+        <li class="covered" data-hits="1" data-linenumber="72">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      }</code>
+          <code class="ruby">    ha = HeadcountAnalyst.new(dr)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="73">
           
           
-          <code class="ruby">    })</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="74">
           <span class="hits">1</span>
           
-          <code class="ruby">    ha = HeadcountAnalyst.new(dr)</code>
+          <code class="ruby">    assert ha.kindergarten_participation_correlates_with_high_school_graduation(for: &#39;ACADEMY 20&#39;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="75">
           
           
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="76">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    assert ha.kindergarten_participation_correlates_with_high_school_graduation(for: &#39;ACADEMY 20&#39;)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="77">
-          
-          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="78">
+        <li class="never" data-hits="" data-linenumber="76">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="79">
+        <li class="covered" data-hits="1" data-linenumber="77">
           <span class="hits">1</span>
           
           <code class="ruby">  def test_looping_through_each_district</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="80">
+        <li class="never" data-hits="" data-linenumber="78">
           
           
           <code class="ruby">    # skip</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="81">
+        <li class="covered" data-hits="1" data-linenumber="79">
           <span class="hits">1</span>
           
           <code class="ruby">    dr = DistrictRepository.new</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="82">
+        <li class="covered" data-hits="1" data-linenumber="80">
           <span class="hits">1</span>
           
           <code class="ruby">    dr.load_data({</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="81">
+          
+          
+          <code class="ruby">      :enrollment =&gt; {</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="82">
+          
+          
+          <code class="ruby">        :kindergarten =&gt; &quot;./data/Kindergartners in full-day program.csv&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="83">
           
           
-          <code class="ruby">      :enrollment =&gt; {</code>
+          <code class="ruby">        :high_school_graduation =&gt; &quot;./data/High school graduation rates.csv&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="84">
           
           
-          <code class="ruby">        :kindergarten =&gt; &quot;./data/Kindergartners in full-day program.csv&quot;,</code>
+          <code class="ruby">      }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="85">
           
           
-          <code class="ruby">        :high_school_graduation =&gt; &quot;./data/High school graduation rates.csv&quot;</code>
+          <code class="ruby">    })</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="86">
+        <li class="covered" data-hits="1" data-linenumber="86">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      }</code>
+          <code class="ruby">    ha = HeadcountAnalyst.new(dr)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="87">
           
           
-          <code class="ruby">    })</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="88">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    ha = HeadcountAnalyst.new(dr)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="89">
+        <li class="never" data-hits="" data-linenumber="88">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="90">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="91">
+        <li class="covered" data-hits="1" data-linenumber="89">
           <span class="hits">1</span>
           
           <code class="ruby">    refute ha.loop_through_all_schools</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="92">
+        <li class="never" data-hits="" data-linenumber="90">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="93">
+        <li class="never" data-hits="" data-linenumber="91">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="94">
+        <li class="covered" data-hits="1" data-linenumber="92">
           <span class="hits">1</span>
           
           <code class="ruby">  def test_find_if_correlates_statewide_returns_boolean</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="95">
+        <li class="never" data-hits="" data-linenumber="93">
           
           
           <code class="ruby">    # skip</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="96">
+        <li class="covered" data-hits="1" data-linenumber="94">
           <span class="hits">1</span>
           
           <code class="ruby">    dr = DistrictRepository.new</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="97">
+        <li class="covered" data-hits="1" data-linenumber="95">
           <span class="hits">1</span>
           
           <code class="ruby">    dr.load_data({</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="98">
+        <li class="never" data-hits="" data-linenumber="96">
           
           
           <code class="ruby">      :enrollment =&gt; {</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="99">
+        <li class="never" data-hits="" data-linenumber="97">
           
           
           <code class="ruby">        :kindergarten =&gt; &quot;./data/Kindergartners in full-day program.csv&quot;,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="100">
+        <li class="never" data-hits="" data-linenumber="98">
           
           
           <code class="ruby">        :high_school_graduation =&gt; &quot;./data/High school graduation rates.csv&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="101">
+        <li class="never" data-hits="" data-linenumber="99">
           
           
           <code class="ruby">      }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="102">
+        <li class="never" data-hits="" data-linenumber="100">
           
           
           <code class="ruby">    })</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="103">
+        <li class="covered" data-hits="1" data-linenumber="101">
           <span class="hits">1</span>
           
           <code class="ruby">    ha = HeadcountAnalyst.new(dr)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="104">
+        <li class="never" data-hits="" data-linenumber="102">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="105">
+        <li class="covered" data-hits="1" data-linenumber="103">
           <span class="hits">1</span>
           
           <code class="ruby">      assert_instance_of FalseClass, ha.kindergarten_participation_correlates_with_high_school_graduation(:for =&gt; &#39;STATEWIDE&#39;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="106">
+        <li class="never" data-hits="" data-linenumber="104">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="107">
+        <li class="never" data-hits="" data-linenumber="105">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="108">
+        <li class="covered" data-hits="1" data-linenumber="106">
           <span class="hits">1</span>
           
           <code class="ruby">    def test_find_if_correlates_selected_states_returns_boolean</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="109">
+        <li class="covered" data-hits="1" data-linenumber="107">
           <span class="hits">1</span>
           
           <code class="ruby">      dr = DistrictRepository.new</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="110">
+        <li class="covered" data-hits="1" data-linenumber="108">
           <span class="hits">1</span>
           
           <code class="ruby">      dr.load_data({</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="111">
+        <li class="never" data-hits="" data-linenumber="109">
           
           
           <code class="ruby">        :enrollment =&gt; {</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="112">
+        <li class="never" data-hits="" data-linenumber="110">
           
           
           <code class="ruby">          :kindergarten =&gt; &quot;./data/Kindergartners in full-day program.csv&quot;,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="113">
+        <li class="never" data-hits="" data-linenumber="111">
           
           
           <code class="ruby">          :high_school_graduation =&gt; &quot;./data/High school graduation rates.csv&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="114">
+        <li class="never" data-hits="" data-linenumber="112">
           
           
           <code class="ruby">        }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="115">
+        <li class="never" data-hits="" data-linenumber="113">
           
           
           <code class="ruby">      })</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="116">
+        <li class="covered" data-hits="1" data-linenumber="114">
           <span class="hits">1</span>
           
           <code class="ruby">      ha = HeadcountAnalyst.new(dr)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="117">
+        <li class="never" data-hits="" data-linenumber="115">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="118">
+        <li class="covered" data-hits="1" data-linenumber="116">
           <span class="hits">1</span>
           
           <code class="ruby">      assert_instance_of TrueClass, ha.kindergarten_participation_correlates_with_high_school_graduation(:across =&gt; [&#39;ACADEMY 20&#39;, &#39;BRIGHTON 27J&#39;, &#39;BRIGGSDALE RE-10&#39;, &#39;BUENA VISTA R-31&#39;])</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="119">
+        <li class="never" data-hits="" data-linenumber="117">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="120">
+        <li class="never" data-hits="" data-linenumber="118">
           
           
           <code class="ruby">     end</code>
