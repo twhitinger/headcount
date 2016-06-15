@@ -10,7 +10,7 @@ class StatewideTestTest < Minitest::Test
 
 
   def test_proficient_by_grade_stored_in_hash
-
+    # skip
     str = StatewideTestRepository.new
 
     str.load_data({
@@ -42,9 +42,9 @@ class StatewideTestTest < Minitest::Test
     end
 
     def test_proficient_by_grade_ethinic
-      skip
-      str = StatewideTestRepository.new
 
+      str = StatewideTestRepository.new
+      # skip
       str.load_data({
         :statewide_testing => {
           :third_grade => "./data/3rd grade students scoring proficient or above on the CSAP_TCAP.csv",
@@ -62,15 +62,15 @@ class StatewideTestTest < Minitest::Test
         2012=>{:math=>0.661, :reading=>0.798, :writing=>0.647},
         2013=>{:math=>0.669, :reading=>0.798, :writing=>0.647},
         2014=>{:math=>0.671, :reading=>0.798, :writing=>0.647}}
-        statewide_test = StatewideTest.new(str.statewide_tests)
+
+        statewide_test = str.find_by_name("Colorado")
 
         assert_equal expected, statewide_test.proficient_by_race_or_ethnicity(:asian)
         assert_equal expected2, statewide_test.proficient_by_race_or_ethnicity(:white)
       end
 
       def test_proficient_by_grade_in_year
-        skip
-
+        # skip
         str = StatewideTestRepository.new
 
         str.load_data({
@@ -82,14 +82,15 @@ class StatewideTestTest < Minitest::Test
             :writing => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Writing.csv"
           }
           })
-          statewide_test = StatewideTest.new(str.statewide_tests)
+
+          statewide_test = str.find_by_name("Colorado")
           # statewide_test.proficient_for_subject_by_grade_in_year(:math, 3, 2008)
           assert_equal 0.697, statewide_test.proficient_for_subject_by_grade_in_year(:math, 3, 2008)
           assert_equal 0.671, statewide_test.proficient_for_subject_by_grade_in_year(:reading, 8, 2012)
         end
 
         def test_proficient_for_subject_by_race_in_year
-          skip
+          # skip
           str = StatewideTestRepository.new
           str.load_data({
             :statewide_testing => {
@@ -100,7 +101,7 @@ class StatewideTestTest < Minitest::Test
               :writing => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Writing.csv"
             }
             })
-            statewide_test = StatewideTest.new(str.statewide_tests)
+              statewide_test = str.find_by_name("Colorado")
 
             assert_equal 0.719, statewide_test.proficient_for_subject_by_race_in_year(:math, :asian, 2012)
             assert_equal 0.789, statewide_test.proficient_for_subject_by_race_in_year(:reading, :white, 2011)
