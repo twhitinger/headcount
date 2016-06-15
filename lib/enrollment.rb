@@ -19,7 +19,8 @@ class Enrollment
   end
 
   def graduation_rate_by_year
-    high_school_data[:high_school_graduation_participation].reduce({}) do |result, pair|
+    high_school_data[:high_school_graduation_participation]\
+    .reduce({}) do |result, pair|
       result.merge(pair.first => MathHelper.truncate_float(pair.last))
     end
   end

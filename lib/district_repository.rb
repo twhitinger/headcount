@@ -33,7 +33,8 @@ class DistrictRepository
 
   def generate_district_repo(file_tree)
     filepath = file_tree[:enrollment][:kindergarten]
-    years =  CSV.foreach(filepath, headers: true, header_converters: :symbol).map(&:to_h)
+    years =  CSV.foreach(filepath, headers: true,
+    header_converters: :symbol).map(&:to_h)
     years.each do |row|
       next if find_by_name(row[:location])
       districts << District.new(name: row[:location])
