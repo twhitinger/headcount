@@ -10,7 +10,7 @@ class StatewideTestTest < Minitest::Test
 
 
   def test_proficient_by_grade_stored_in_hash
-    # skip
+    
     str = StatewideTestRepository.new
 
     str.load_data({
@@ -44,7 +44,7 @@ class StatewideTestTest < Minitest::Test
     def test_proficient_by_grade_ethinic
 
       str = StatewideTestRepository.new
-      # skip
+      
       str.load_data({
         :statewide_testing => {
           :third_grade => "./data/3rd grade students scoring proficient or above on the CSAP_TCAP.csv",
@@ -70,7 +70,7 @@ class StatewideTestTest < Minitest::Test
       end
 
       def test_proficient_by_grade_in_year
-        # skip
+        
         str = StatewideTestRepository.new
 
         str.load_data({
@@ -90,7 +90,7 @@ class StatewideTestTest < Minitest::Test
         end
 
         def test_proficient_for_subject_by_race_in_year
-          # skip
+          
           str = StatewideTestRepository.new
           str.load_data({
             :statewide_testing => {
