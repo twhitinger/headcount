@@ -1,7 +1,7 @@
 {
   "Unit Tests": {
     "coverage": {
-      "/Users/zackforbing/turing/1module/headcount/test/district_test.rb": [
+      "/Users/midas/turing/projects/headcount/test/district_test.rb": [
         1,
         1,
         null,
@@ -18,7 +18,7 @@
         null,
         null
       ],
-      "/Users/zackforbing/turing/1module/headcount/test/economic_profile_repository_test.rb": [
+      "/Users/midas/turing/projects/headcount/test/economic_profile_repository_test.rb": [
         1,
         1,
         1,
@@ -55,7 +55,7 @@
         null,
         null
       ],
-      "/Users/zackforbing/turing/1module/headcount/test/economic_profile_test.rb": [
+      "/Users/midas/turing/projects/headcount/test/economic_profile_test.rb": [
         1,
         1,
         1,
@@ -154,7 +154,7 @@
         null,
         null
       ],
-      "/Users/zackforbing/turing/1module/headcount/test/enrollment_repository_test.rb": [
+      "/Users/midas/turing/projects/headcount/test/enrollment_repository_test.rb": [
         1,
         1,
         1,
@@ -206,7 +206,7 @@
         null,
         null
       ],
-      "/Users/zackforbing/turing/1module/headcount/test/enrollment_test.rb": [
+      "/Users/midas/turing/projects/headcount/test/enrollment_test.rb": [
         1,
         1,
         1,
@@ -303,7 +303,7 @@
         null,
         null
       ],
-      "/Users/zackforbing/turing/1module/headcount/test/headcount_analyst_test.rb": [
+      "/Users/midas/turing/projects/headcount/test/headcount_analyst_test.rb": [
         1,
         1,
         1,
@@ -605,7 +605,7 @@
         null,
         null
       ],
-      "/Users/zackforbing/turing/1module/headcount/lib/headcount_analyst.rb": [
+      "/Users/midas/turing/projects/headcount/lib/headcount_analyst.rb": [
         1,
         1,
         1,
@@ -758,7 +758,6 @@
         null,
         null,
         1,
-        null,
         8,
         null,
         null,
@@ -977,7 +976,7 @@
         null,
         null
       ],
-      "/Users/zackforbing/turing/1module/headcount/lib/result_set.rb": [
+      "/Users/midas/turing/projects/headcount/lib/result_set.rb": [
         1,
         null,
         1,
@@ -990,7 +989,7 @@
         null,
         null
       ],
-      "/Users/zackforbing/turing/1module/headcount/lib/result_entry.rb": [
+      "/Users/midas/turing/projects/headcount/lib/result_entry.rb": [
         1,
         1,
         null,
@@ -1021,7 +1020,7 @@
         null,
         null
       ],
-      "/Users/zackforbing/turing/1module/headcount/test/result_entry_test.rb": [
+      "/Users/midas/turing/projects/headcount/test/result_entry_test.rb": [
         1,
         1,
         1,
@@ -1051,7 +1050,7 @@
         null,
         null
       ],
-      "/Users/zackforbing/turing/1module/headcount/test/result_set_test.rb": [
+      "/Users/midas/turing/projects/headcount/test/result_set_test.rb": [
         1,
         1,
         null,
@@ -1081,7 +1080,7 @@
         null,
         null
       ],
-      "/Users/zackforbing/turing/1module/headcount/test/statewide_test_repository_test.rb": [
+      "/Users/midas/turing/projects/headcount/test/statewide_test_repository_test.rb": [
         1,
         1,
         1,
@@ -1127,7 +1126,7 @@
         null,
         null
       ],
-      "/Users/zackforbing/turing/1module/headcount/test/statewide_test_test.rb": [
+      "/Users/midas/turing/projects/headcount/test/statewide_test_test.rb": [
         1,
         1,
         1,
@@ -1231,6 +1230,6 @@
         null
       ]
     },
-    "timestamp": 1466087712
+    "timestamp": 1466088194
   }
 }
