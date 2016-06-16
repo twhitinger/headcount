@@ -215,4 +215,96 @@ class HeadcountAnalystTest < Minitest::Test
     assert_equal 57408, rs.statewide_average.median_household_income
     assert_equal 0.16491292810457553, rs.statewide_average.children_in_poverty_rate
     end
+    def test_kindergarten_participation_against_household_income
+      dr = DistrictRepository.new
+      dr.load_data({
+        :enrollment => {
+          :kindergarten => "./data/Kindergartners in full-day program.csv",
+          :high_school_graduation => "./data/High school graduation rates.csv"},
+          :economic_profile => {
+            :median_household_income => "./data/Median household income.csv",
+            :children_in_poverty => "./data/School-aged children in poverty.csv",
+            :free_or_reduced_price_lunch => "./data/Students qualifying for free or reduced price lunch.csv"
+          }
+        })
+      ha = HeadcountAnalyst.new(dr)
+
+      assert_equal 0.766, ha.kindergarten_participation_against_household_income("ACADEMY 20")
+    end
+
+    def test_kindergarten_participation_correlates_with_household_income
+      dr = DistrictRepository.new
+      dr.load_data({
+        :enrollment => {
+          :kindergarten => "./data/Kindergartners in full-day program.csv",
+          :high_school_graduation => "./data/High school graduation rates.csv"},
+          :economic_profile => {
+            :median_household_income => "./data/Median household income.csv",
+            :children_in_poverty => "./data/School-aged children in poverty.csv",
+            :free_or_reduced_price_lunch => "./data/Students qualifying for free or reduced price lunch.csv"
+          }
+          })
+
+
+          ha = HeadcountAnalyst.new(dr)
+
+          assert ha.kindergarten_participation_correlates_with_household_income(for: 'ACADEMY 20')
+    end
+
+    def test_kindergarten_participation_correlates_with_household_income_for_colorado
+      dr = DistrictRepository.new
+      dr.load_data({
+        :enrollment => {
+          :kindergarten => "./data/Kindergartners in full-day program.csv",
+          :high_school_graduation => "./data/High school graduation rates.csv"},
+          :economic_profile => {
+            :median_household_income => "./data/Median household income.csv",
+            :children_in_poverty => "./data/School-aged children in poverty.csv",
+            :free_or_reduced_price_lunch => "./data/Students qualifying for free or reduced price lunch.csv"
+          }
+          })
+
+
+          ha = HeadcountAnalyst.new(dr)
+
+          assert ha.kindergarten_participation_correlates_with_household_income(for: 'COLORADO')
+    end
+
+    def test_kindergarten_participation_correlates_with_household_income_statewide
+      dr = DistrictRepository.new
+      dr.load_data({
+        :enrollment => {
+          :kindergarten => "./data/Kindergartners in full-day program.csv",
+          :high_school_graduation => "./data/High school graduation rates.csv"},
+          :economic_profile => {
+            :median_household_income => "./data/Median household income.csv",
+            :children_in_poverty => "./data/School-aged children in poverty.csv",
+            :free_or_reduced_price_lunch => "./data/Students qualifying for free or reduced price lunch.csv"
+          }
+          })
+
+
+          ha = HeadcountAnalyst.new(dr)
+
+          refute ha.kindergarten_participation_correlates_with_household_income(for: 'STATEWIDE')
+    end
+
+    def test_kindergarten_participation_correlates_with_household_income
+      dr = DistrictRepository.new
+      dr.load_data({
+        :enrollment => {
+          :kindergarten => "./data/Kindergartners in full-day program.csv",
+          :high_school_graduation => "./data/High school graduation rates.csv"},
+          :economic_profile => {
+            :median_household_income => "./data/Median household income.csv",
+            :children_in_poverty => "./data/School-aged children in poverty.csv",
+            :free_or_reduced_price_lunch => "./data/Students qualifying for free or reduced price lunch.csv"
+          }
+          })
+
+
+          ha = HeadcountAnalyst.new(dr)
+
+          refute ha.kindergarten_participation_correlates_with_household_income(:across => ['ACADEMY 20', 'YUMA SCHOOL DISTRICT 1', 'WILEY RE-13 JT', 'SPRINGFIELD RE-4'])
+    end
 end
