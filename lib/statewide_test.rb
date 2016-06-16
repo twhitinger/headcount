@@ -44,6 +44,7 @@ class StatewideTest
 
   def proficient_for_subject_by_grade_in_year(subject, grade, year)
     sub_arr = [:math, :reading, :writing]
+
     raise UnknownDataError unless sub_arr.include?(subject)
     class_data[grade_hash(grade)][year][subject]
   end
