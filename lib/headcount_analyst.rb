@@ -120,7 +120,7 @@ class HeadcountAnalyst
     (occurances.to_f / total) > 0.7
   end
 
-  def high_poverty_and_high_school_graduation # This needs to be refactored
+  def high_poverty_and_high_school_graduation
     average_for_each_district_poverty
     create_high_povery_instance
   end
@@ -150,7 +150,6 @@ class HeadcountAnalyst
   end
 
   def poverty_dist_average(school)
-    #refactored
     average = school.economic_profile\
     .economic_data[:children_in_poverty].values.reduce(:+)/
     school.economic_profile.economic_data[:children_in_poverty].length
