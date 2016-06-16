@@ -10,7 +10,7 @@ class StatewideTest
   end
 
   def proficient_by_grade(grade)
-    # raise_unknown_data_error(grade)
+      raise UnknownDataError unless grade == 3 || grade == 8
     class_data[grade_hash(grade)]
   end
 
@@ -43,12 +43,14 @@ class StatewideTest
 
   def proficient_for_subject_by_grade_in_year(subject, grade, year)
     sub_arr = [:math, :reading, :writing]
+
     raise UnknownDataError unless sub_arr.include?(subject)
     class_data[grade_hash(grade)][year][subject]
   end
 
   def proficient_for_subject_by_race_in_year(subject, race, year)
     sub_arr = [:math, :reading, :writing]
+    raise UnknownDataError unless race_keys(race)
     raise UnknownDataError unless sub_arr.include?(subject)
     class_data[subject][year][race]
   end
