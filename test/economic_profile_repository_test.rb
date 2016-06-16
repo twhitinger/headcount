@@ -23,7 +23,7 @@ class EconomicProfileRepositoryTest < Minitest::Test
     end
 
     def test_district_groups_returns_all_181_districts
-      skip
+
       epr = EconomicProfileRepository.new
       epr.load_data({
         :economic_profile => {
@@ -31,30 +31,6 @@ class EconomicProfileRepositoryTest < Minitest::Test
         }
         })
 
-        assert_equal 181, epr.district_groups.count
+        assert_equal 181, epr.economic_profiles.count
       end
-
-      def test_string_range_int_converts_string_range_into_a_paired_array_of_integers
-        skip
-        epr = EconomicProfileRepository.new
-
-        assert_equal [2005, 2009], epr.string_range_into_int("2005-2009")
-      end
-
-      def test_match_timeframe_to_data_creates_hash_of_time_frame_to_data
-        skip
-        epr = EconomicProfileRepository.new
-
-        input = [ {:timeframe=>"2005-2009", :data=>"56222"},
-          {:timeframe=>"2006-2010", :data=>"56456"},
-          {:timeframe=>"2008-2012", :data=>"58244"} ]
-
-          epr.match_timeframe_to_data_range(input)
-
-          output =     { [2005, 2009] => 56222,
-            [2006, 2010] => 56456,
-            [2008, 2012] => 58244 }
-
-            assert_equal output, epr.match_timeframe_to_data_range(input)
-          end
-        end
+    end
