@@ -14,27 +14,27 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-06-16T08:27:55-06:00">2016-06-16T08:27:55-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-06-16T08:35:12-06:00">2016-06-16T08:35:12-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">99.27%</span></span>
+    (<span class="covered_percent"><span class="green">98.56%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         657.0
+         650.22
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>13</b> files in total.
-    <b>551</b> relevant lines. 
-    <span class="green"><b>547</b> lines covered</span> and
-    <span class="red"><b>4</b> lines missed </span>
+    <b>557</b> relevant lines. 
+    <span class="green"><b>549</b> lines covered</span> and
+    <span class="red"><b>8</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -52,12 +52,12 @@
       
       <tr>
         <td class="strong"><a href="#14d57ee6d44e7f90d6c3efc029a9a041ff38e4f0" class="src_link" title="lib/headcount_analyst.rb">lib/headcount_analyst.rb</a></td>
-        <td class="green strong">100.0 %</td>
-        <td>353</td>
-        <td>190</td>
-        <td>190</td>
-        <td>0</td>
-        <td>1903.2</td>
+        <td class="green strong">97.96 %</td>
+        <td>370</td>
+        <td>196</td>
+        <td>192</td>
+        <td>4</td>
+        <td>1845.8</td>
       </tr>
       
       <tr>
@@ -199,11 +199,11 @@
         <div class="source_table" id="14d57ee6d44e7f90d6c3efc029a9a041ff38e4f0">
   <div class="header">
     <h3>lib/headcount_analyst.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
+    <h4><span class="green">97.96 %</span> covered</h4>
     <div>
-      <b>190</b> relevant lines. 
-      <span class="green"><b>190</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <b>196</b> relevant lines. 
+      <span class="green"><b>192</b> lines covered</span> and
+      <span class="red"><b>4</b> lines missed.</span>
     </div>
   </div>
   
@@ -957,949 +957,949 @@
         <li class="covered" data-hits="2" data-linenumber="125">
           <span class="hits">2</span>
           
+          <code class="ruby">    create_high_povery_instance</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="126">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="127">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="128">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def create_high_povery_instance</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="129">
+          <span class="hits">2</span>
+          
           <code class="ruby">    matching_districts = []</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="126">
+        <li class="covered" data-hits="2" data-linenumber="130">
           <span class="hits">2</span>
           
           <code class="ruby">    @passed_HS_filter.reduce([]) do |result, school|</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="127">
+        <li class="covered" data-hits="4" data-linenumber="131">
           <span class="hits">4</span>
           
           <code class="ruby">      passing_districts = ResultEntry.new({</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="128">
+        <li class="never" data-hits="" data-linenumber="132">
           
           
           <code class="ruby">        name: school.name,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="129">
+        <li class="never" data-hits="" data-linenumber="133">
           
           
           <code class="ruby">        free_and_reduced_price_lunch_rate: district_average(school),</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="130">
+        <li class="never" data-hits="" data-linenumber="134">
           
           
           <code class="ruby">        children_in_poverty_rate: poverty_dist_average(school),</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="131">
+        <li class="never" data-hits="" data-linenumber="135">
           
           
           <code class="ruby">        high_school_graduation_rate: hs_district_average(school)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="132">
+        <li class="never" data-hits="" data-linenumber="136">
           
           
           <code class="ruby">        })</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="133">
+        <li class="covered" data-hits="4" data-linenumber="137">
           <span class="hits">4</span>
           
           <code class="ruby">      matching_districts &lt;&lt; passing_districts</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="134">
+        <li class="never" data-hits="" data-linenumber="138">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="135">
+        <li class="covered" data-hits="2" data-linenumber="139">
           <span class="hits">2</span>
           
           <code class="ruby">    statewide_result = ResultEntry.new({</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="136">
+        <li class="never" data-hits="" data-linenumber="140">
           
           
           <code class="ruby">      name: &quot;COLORADO&quot;,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="137">
+        <li class="never" data-hits="" data-linenumber="141">
           
           
           <code class="ruby">      free_and_reduced_price_lunch_rate:</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="138">
+        <li class="never" data-hits="" data-linenumber="142">
           
           
           <code class="ruby">      average_for_all_districts_qualify_for_free_lunch,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="139">
+        <li class="never" data-hits="" data-linenumber="143">
           
           
           <code class="ruby">      children_in_poverty_rate: average_for_all_districts_poverty,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="140">
+        <li class="never" data-hits="" data-linenumber="144">
           
           
           <code class="ruby">      high_school_graduation_rate:</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="141">
+        <li class="never" data-hits="" data-linenumber="145">
           
           
           <code class="ruby">      average_for_all_districts_high_school_graduation</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="142">
+        <li class="never" data-hits="" data-linenumber="146">
           
           
           <code class="ruby">      })</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="143">
+        <li class="covered" data-hits="2" data-linenumber="147">
           <span class="hits">2</span>
           
           <code class="ruby">    high_poverty_and_grad_result = ResultSet.new(</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="144">
+        <li class="never" data-hits="" data-linenumber="148">
           
           
           <code class="ruby">      matching_districts: matching_districts,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="145">
+        <li class="never" data-hits="" data-linenumber="149">
           
           
           <code class="ruby">      statewide_average: statewide_result)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="146">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="147">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="148">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def poverty_dist_average(school)</code>
-        </li>
-      
-        <li class="covered" data-hits="8" data-linenumber="149">
-          <span class="hits">8</span>
-          
-          <code class="ruby">    average = school.economic_profile\</code>
-        </li>
-      
         <li class="never" data-hits="" data-linenumber="150">
           
           
-          <code class="ruby">    .economic_data[:children_in_poverty].values.reduce(:+)/</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="151">
           
           
-          <code class="ruby">    school.economic_profile.economic_data[:children_in_poverty].length</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="152">
+        <li class="covered" data-hits="1" data-linenumber="152">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">  def poverty_dist_average(school)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="153">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    #refactored</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="154">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def district_average(school)</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="155">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="8" data-linenumber="154">
+          <span class="hits">8</span>
           
           <code class="ruby">    average = school.economic_profile\</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="155">
+          
+          
+          <code class="ruby">    .economic_data[:children_in_poverty].values.reduce(:+)/</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="156">
           
           
-          <code class="ruby">    .economic_data[:free_or_reduced_price_lunch]</code>
+          <code class="ruby">    school.economic_profile.economic_data[:children_in_poverty].length</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="157">
-          <span class="hits">4</span>
+        <li class="never" data-hits="" data-linenumber="157">
           
-          <code class="ruby">    each_avg = average.reduce([]) do |result, data|</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="covered" data-hits="60" data-linenumber="158">
-          <span class="hits">60</span>
+        <li class="never" data-hits="" data-linenumber="158">
           
-          <code class="ruby">      result &lt;&lt; data.last[:total]</code>
+          
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="159">
+        <li class="covered" data-hits="1" data-linenumber="159">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    end</code>
+          <code class="ruby">  def district_average(school)</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="160">
-          <span class="hits">4</span>
+        <li class="missed" data-hits="0" data-linenumber="160">
           
-          <code class="ruby">    final_avg = each_avg.reduce(:+)/each_avg.length</code>
+          
+          <code class="ruby">    average = school.economic_profile\</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="161">
           
           
+          <code class="ruby">    .economic_data[:free_or_reduced_price_lunch]</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="162">
+          
+          
+          <code class="ruby">    each_avg = average.reduce([]) do |result, data|</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="163">
+          
+          
+          <code class="ruby">      result &lt;&lt; data.last[:total]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="164">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="165">
+          
+          
+          <code class="ruby">    final_avg = each_avg.reduce(:+)/each_avg.length</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="166">
+          
+          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="162">
+        <li class="never" data-hits="" data-linenumber="167">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="163">
+        <li class="covered" data-hits="1" data-linenumber="168">
           <span class="hits">1</span>
           
           <code class="ruby">  def hs_district_average(school)</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="164">
+        <li class="covered" data-hits="4" data-linenumber="169">
           <span class="hits">4</span>
           
           <code class="ruby">    path = school.enrollment\</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="165">
+        <li class="never" data-hits="" data-linenumber="170">
           
           
           <code class="ruby">    .high_school_data[:high_school_graduation_participation].values</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="166">
+        <li class="covered" data-hits="4" data-linenumber="171">
           <span class="hits">4</span>
           
           <code class="ruby">    total = path.reduce(:+)</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="167">
+        <li class="covered" data-hits="4" data-linenumber="172">
           <span class="hits">4</span>
           
           <code class="ruby">    length = path.length</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="168">
+        <li class="covered" data-hits="4" data-linenumber="173">
           <span class="hits">4</span>
           
           <code class="ruby">    total/length</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="169">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="170">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="171">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def total_schools(data_set)</code>
-        </li>
-      
-        <li class="covered" data-hits="466" data-linenumber="172">
-          <span class="hits">466</span>
-          
-          <code class="ruby">    @district_repo.districts.find_all do |school|</code>
-        </li>
-      
-        <li class="covered" data-hits="84346" data-linenumber="173">
-          <span class="hits">84346</span>
-          
-          <code class="ruby">      school.economic_profile.economic_data[data_set]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="174">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="175">
           
           
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="176">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="177">
+        <li class="covered" data-hits="1" data-linenumber="176">
           <span class="hits">1</span>
           
-          <code class="ruby">  def average_for_each_district_poverty</code>
+          <code class="ruby">  def total_schools(data_set)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="178">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="466" data-linenumber="177">
+          <span class="hits">466</span>
           
-          <code class="ruby">    total_schools(:children_in_poverty).map do |school|</code>
+          <code class="ruby">    @district_repo.districts.find_all do |school|</code>
         </li>
       
-        <li class="covered" data-hits="360" data-linenumber="179">
-          <span class="hits">360</span>
+        <li class="covered" data-hits="84346" data-linenumber="178">
+          <span class="hits">84346</span>
           
-          <code class="ruby">      average = school.economic_profile\</code>
+          <code class="ruby">      school.economic_profile.economic_data[data_set]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="179">
+          
+          
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="180">
           
           
-          <code class="ruby">      .economic_data[:children_in_poverty].values.reduce(:+)/</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="181">
           
           
-          <code class="ruby">      school.economic_profile.economic_data[:children_in_poverty].length</code>
-        </li>
-      
-        <li class="covered" data-hits="360" data-linenumber="182">
-          <span class="hits">360</span>
-          
-          <code class="ruby">      is_it = average &gt; average_for_all_districts_poverty</code>
-        </li>
-      
-        <li class="covered" data-hits="360" data-linenumber="183">
-          <span class="hits">360</span>
-          
-          <code class="ruby">      @passed_average_filter &lt;&lt; school if is_it</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="184">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="185">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    average_for_each_district_qualify_for_free_lunch(@passed_average_filter)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="186">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="187">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="188">
+        <li class="covered" data-hits="1" data-linenumber="182">
           <span class="hits">1</span>
           
-          <code class="ruby">  def average_for_all_districts_poverty</code>
+          <code class="ruby">  def average_for_each_district_poverty</code>
         </li>
       
-        <li class="covered" data-hits="464" data-linenumber="189">
-          <span class="hits">464</span>
-          
-          <code class="ruby">    values = total_schools(:children_in_poverty).reduce([]) do |result, school|</code>
-        </li>
-      
-        <li class="covered" data-hits="83520" data-linenumber="190">
-          <span class="hits">83520</span>
-          
-          <code class="ruby">      all_values = school.economic_profile\</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="191">
-          
-          
-          <code class="ruby">      .economic_data[:children_in_poverty].values</code>
-        </li>
-      
-        <li class="covered" data-hits="83520" data-linenumber="192">
-          <span class="hits">83520</span>
-          
-          <code class="ruby">      result &lt;&lt; all_values</code>
-        </li>
-      
-        <li class="covered" data-hits="83520" data-linenumber="193">
-          <span class="hits">83520</span>
-          
-          <code class="ruby">      result</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="194">
-          
-          
-          <code class="ruby">    end.flatten</code>
-        </li>
-      
-        <li class="covered" data-hits="464" data-linenumber="195">
-          <span class="hits">464</span>
-          
-          <code class="ruby">    average = values.reduce(:+)/values.count</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="196">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="197">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="198">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def average_for_each_district_qualify_for_free_lunch(schools)</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="199">
+        <li class="covered" data-hits="2" data-linenumber="183">
           <span class="hits">2</span>
           
-          <code class="ruby">    total = schools.find_all do |school|</code>
+          <code class="ruby">    total_schools(:children_in_poverty).map do |school|</code>
         </li>
       
-        <li class="covered" data-hits="158" data-linenumber="200">
-          <span class="hits">158</span>
-          
-          <code class="ruby">      school.economic_profile.economic_data[:free_or_reduced_price_lunch]</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="201">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="202">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    total.map do |school|</code>
-        </li>
-      
-        <li class="covered" data-hits="158" data-linenumber="203">
-          <span class="hits">158</span>
-          
-          <code class="ruby">      average = school.economic_profile\</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="204">
-          
-          
-          <code class="ruby">      .economic_data[:free_or_reduced_price_lunch]</code>
-        </li>
-      
-        <li class="covered" data-hits="158" data-linenumber="205">
-          <span class="hits">158</span>
-          
-          <code class="ruby">      each_avg = average.reduce([]) do |result, data|</code>
-        </li>
-      
-        <li class="covered" data-hits="2370" data-linenumber="206">
-          <span class="hits">2370</span>
-          
-          <code class="ruby">        result &lt;&lt; data.last[:total]</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="207">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="covered" data-hits="158" data-linenumber="208">
-          <span class="hits">158</span>
-          
-          <code class="ruby">      final_avg = each_avg.reduce(:+)/each_avg.length</code>
-        </li>
-      
-        <li class="covered" data-hits="158" data-linenumber="209">
-          <span class="hits">158</span>
-          
-          <code class="ruby">      is_it = final_avg &gt; average_for_all_districts_qualify_for_free_lunch</code>
-        </li>
-      
-        <li class="covered" data-hits="158" data-linenumber="210">
-          <span class="hits">158</span>
-          
-          <code class="ruby">      @passed_lunch_filter &lt;&lt; school if is_it</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="211">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="212">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    average_for_each_district_high_school_graduation(@passed_lunch_filter)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="213">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="214">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="215">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def average_for_all_districts_qualify_for_free_lunch</code>
-        </li>
-      
-        <li class="covered" data-hits="160" data-linenumber="216">
-          <span class="hits">160</span>
-          
-          <code class="ruby">    total = @district_repo.districts[0]\</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="217">
-          
-          
-          <code class="ruby">    .economic_profile.economic_data[:free_or_reduced_price_lunch].values</code>
-        </li>
-      
-        <li class="covered" data-hits="160" data-linenumber="218">
-          <span class="hits">160</span>
-          
-          <code class="ruby">    values = total.reduce([]) do |result, data|</code>
-        </li>
-      
-        <li class="covered" data-hits="2400" data-linenumber="219">
-          <span class="hits">2400</span>
-          
-          <code class="ruby">      result &lt;&lt; data[:total]</code>
-        </li>
-      
-        <li class="covered" data-hits="2400" data-linenumber="220">
-          <span class="hits">2400</span>
-          
-          <code class="ruby">      result</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="221">
-          
-          
-          <code class="ruby">    end.flatten</code>
-        </li>
-      
-        <li class="covered" data-hits="160" data-linenumber="222">
-          <span class="hits">160</span>
-          
-          <code class="ruby">    average = values.reduce(:+)/values.count/@district_repo.districts.length</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="223">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="224">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="225">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def average_for_each_district_high_school_graduation(schools)</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="226">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    total = schools.find_all do |school|</code>
-        </li>
-      
-        <li class="covered" data-hits="24" data-linenumber="227">
-          <span class="hits">24</span>
-          
-          <code class="ruby">      school.enrollment.high_school_data[:high_school_graduation_participation]</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="228">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="229">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    total.map do |school|</code>
-        </li>
-      
-        <li class="covered" data-hits="24" data-linenumber="230">
-          <span class="hits">24</span>
-          
-          <code class="ruby">      each_avg = school.enrollment\</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="231">
-          
-          
-          <code class="ruby">      .high_school_data[:high_school_graduation_participation].values</code>
-        </li>
-      
-        <li class="covered" data-hits="24" data-linenumber="232">
-          <span class="hits">24</span>
-          
-          <code class="ruby">      final_avg = each_avg.reduce(:+)/each_avg.length</code>
-        </li>
-      
-        <li class="covered" data-hits="24" data-linenumber="233">
-          <span class="hits">24</span>
-          
-          <code class="ruby">      is_it = final_avg &gt; average_for_all_districts_high_school_graduation</code>
-        </li>
-      
-        <li class="covered" data-hits="24" data-linenumber="234">
-          <span class="hits">24</span>
-          
-          <code class="ruby">      @passed_HS_filter &lt;&lt; school if is_it</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="235">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="236">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="237">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="238">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def average_for_all_districts_high_school_graduation</code>
-        </li>
-      
-        <li class="covered" data-hits="26" data-linenumber="239">
-          <span class="hits">26</span>
-          
-          <code class="ruby">    path = @district_repo.districts[0]\</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="240">
-          
-          
-          <code class="ruby">    .enrollment.high_school_data[:high_school_graduation_participation].values</code>
-        </li>
-      
-        <li class="covered" data-hits="26" data-linenumber="241">
-          <span class="hits">26</span>
-          
-          <code class="ruby">    total = path.reduce(:+)</code>
-        </li>
-      
-        <li class="covered" data-hits="26" data-linenumber="242">
-          <span class="hits">26</span>
-          
-          <code class="ruby">    length = path.length</code>
-        </li>
-      
-        <li class="covered" data-hits="26" data-linenumber="243">
-          <span class="hits">26</span>
-          
-          <code class="ruby">    total/length</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="244">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="245">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="246">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def average_for_all_districts_median_household_income</code>
-        </li>
-      
-        <li class="covered" data-hits="549" data-linenumber="247">
-          <span class="hits">549</span>
-          
-          <code class="ruby">    path = @district_repo.districts[0]\</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="248">
-          
-          
-          <code class="ruby">    .economic_profile.economic_data[:median_household_income].values</code>
-        </li>
-      
-        <li class="covered" data-hits="549" data-linenumber="249">
-          <span class="hits">549</span>
-          
-          <code class="ruby">    total = path.reduce(:+)</code>
-        </li>
-      
-        <li class="covered" data-hits="549" data-linenumber="250">
-          <span class="hits">549</span>
-          
-          <code class="ruby">    length = path.length</code>
-        </li>
-      
-        <li class="covered" data-hits="549" data-linenumber="251">
-          <span class="hits">549</span>
-          
-          <code class="ruby">    total/length</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="252">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="253">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="254">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def average_for_each_districts_median_household_income</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="255">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    total = @district_repo.districts.find_all do |school|</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="256">
-          
-          
-          <code class="ruby">      school.economic_profile\</code>
-        </li>
-      
-        <li class="covered" data-hits="362" data-linenumber="257">
-          <span class="hits">362</span>
-          
-          <code class="ruby">      .economic_data[:median_household_income] if school.name != &quot;COLORADO&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="258">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="259">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    total.map do |school|</code>
-        </li>
-      
-        <li class="covered" data-hits="360" data-linenumber="260">
+        <li class="covered" data-hits="360" data-linenumber="184">
           <span class="hits">360</span>
           
           <code class="ruby">      average = school.economic_profile\</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="261">
-          
-          
-          <code class="ruby">      .economic_data[:median_household_income].values</code>
-        </li>
-      
-        <li class="covered" data-hits="360" data-linenumber="262">
-          <span class="hits">360</span>
-          
-          <code class="ruby">      each_avg = average.reduce([]) do |result, data|</code>
-        </li>
-      
-        <li class="covered" data-hits="1800" data-linenumber="263">
-          <span class="hits">1800</span>
-          
-          <code class="ruby">        result &lt;&lt; data</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="264">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="covered" data-hits="360" data-linenumber="265">
-          <span class="hits">360</span>
-          
-          <code class="ruby">      final_avg = each_avg.reduce(:+)/each_avg.length</code>
-        </li>
-      
-        <li class="covered" data-hits="360" data-linenumber="266">
-          <span class="hits">360</span>
-          
-          <code class="ruby">      is_it = final_avg &gt; average_for_all_districts_median_household_income</code>
-        </li>
-      
-        <li class="covered" data-hits="360" data-linenumber="267">
-          <span class="hits">360</span>
-          
-          <code class="ruby">      @passed_median_income_filter &lt;&lt; school if is_it</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="268">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="269">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    average_for_each_district_poverty_econ(@passed_median_income_filter)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="270">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="271">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="272">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def average_for_each_district_poverty_econ(school)</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="273">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    total = school.find_all do |school|</code>
-        </li>
-      
-        <li class="covered" data-hits="100" data-linenumber="274">
-          <span class="hits">100</span>
-          
-          <code class="ruby">      school.economic_profile.economic_data[:children_in_poverty]</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="275">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="276">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    total.map do |school|</code>
-        </li>
-      
-        <li class="covered" data-hits="100" data-linenumber="277">
-          <span class="hits">100</span>
-          
-          <code class="ruby">      average = school.economic_profile\</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="278">
+        <li class="never" data-hits="" data-linenumber="185">
           
           
           <code class="ruby">      .economic_data[:children_in_poverty].values.reduce(:+)/</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="279">
+        <li class="never" data-hits="" data-linenumber="186">
           
           
           <code class="ruby">      school.economic_profile.economic_data[:children_in_poverty].length</code>
         </li>
       
-        <li class="covered" data-hits="100" data-linenumber="280">
-          <span class="hits">100</span>
+        <li class="covered" data-hits="360" data-linenumber="187">
+          <span class="hits">360</span>
           
           <code class="ruby">      is_it = average &gt; average_for_all_districts_poverty</code>
         </li>
       
-        <li class="covered" data-hits="100" data-linenumber="281">
-          <span class="hits">100</span>
+        <li class="covered" data-hits="360" data-linenumber="188">
+          <span class="hits">360</span>
           
-          <code class="ruby">      @passed_average_econ_filter &lt;&lt; school if is_it</code>
+          <code class="ruby">      @passed_average_filter &lt;&lt; school if is_it</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="282">
+        <li class="never" data-hits="" data-linenumber="189">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="190">
           
           
           <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="191">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    average_for_each_district_qualify_for_free_lunch(@passed_average_filter)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="192">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="193">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="194">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def average_for_all_districts_poverty</code>
+        </li>
+      
+        <li class="covered" data-hits="464" data-linenumber="195">
+          <span class="hits">464</span>
+          
+          <code class="ruby">    values = total_schools(:children_in_poverty).reduce([]) do |result, school|</code>
+        </li>
+      
+        <li class="covered" data-hits="83520" data-linenumber="196">
+          <span class="hits">83520</span>
+          
+          <code class="ruby">      all_values = school.economic_profile\</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="197">
+          
+          
+          <code class="ruby">      .economic_data[:children_in_poverty].values</code>
+        </li>
+      
+        <li class="covered" data-hits="83520" data-linenumber="198">
+          <span class="hits">83520</span>
+          
+          <code class="ruby">      result &lt;&lt; all_values</code>
+        </li>
+      
+        <li class="covered" data-hits="83520" data-linenumber="199">
+          <span class="hits">83520</span>
+          
+          <code class="ruby">      result</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="200">
+          
+          
+          <code class="ruby">    end.flatten</code>
+        </li>
+      
+        <li class="covered" data-hits="464" data-linenumber="201">
+          <span class="hits">464</span>
+          
+          <code class="ruby">    average = values.reduce(:+)/values.count</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="202">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="203">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="204">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def district_average(school)</code>
+        </li>
+      
+        <li class="covered" data-hits="162" data-linenumber="205">
+          <span class="hits">162</span>
+          
+          <code class="ruby">    average = school.economic_profile\</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="206">
+          
+          
+          <code class="ruby">    .economic_data[:free_or_reduced_price_lunch]</code>
+        </li>
+      
+        <li class="covered" data-hits="162" data-linenumber="207">
+          <span class="hits">162</span>
+          
+          <code class="ruby">    each_avg = average.reduce([]) do |result, data|</code>
+        </li>
+      
+        <li class="covered" data-hits="2430" data-linenumber="208">
+          <span class="hits">2430</span>
+          
+          <code class="ruby">      result &lt;&lt; data.last[:total]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="209">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="162" data-linenumber="210">
+          <span class="hits">162</span>
+          
+          <code class="ruby">    final_avg = each_avg.reduce(:+)/each_avg.length</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="211">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="212">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="213">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def average_for_each_district_qualify_for_free_lunch(schools)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="214">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    total = schools.find_all do |school|</code>
+        </li>
+      
+        <li class="covered" data-hits="158" data-linenumber="215">
+          <span class="hits">158</span>
+          
+          <code class="ruby">      school.economic_profile.economic_data[:free_or_reduced_price_lunch]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="216">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="217">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    total.map do |school|</code>
+        </li>
+      
+        <li class="covered" data-hits="158" data-linenumber="218">
+          <span class="hits">158</span>
+          
+          <code class="ruby">    final_avg = district_average(school)</code>
+        </li>
+      
+        <li class="covered" data-hits="158" data-linenumber="219">
+          <span class="hits">158</span>
+          
+          <code class="ruby">      greater_than_state =\</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="220">
+          
+          
+          <code class="ruby">       final_avg &gt; average_for_all_districts_qualify_for_free_lunch</code>
+        </li>
+      
+        <li class="covered" data-hits="158" data-linenumber="221">
+          <span class="hits">158</span>
+          
+          <code class="ruby">      @passed_lunch_filter &lt;&lt; school if greater_than_state</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="222">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="223">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    average_for_each_district_high_school_graduation(@passed_lunch_filter)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="224">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="225">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="226">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def average_for_all_districts_qualify_for_free_lunch</code>
+        </li>
+      
+        <li class="covered" data-hits="160" data-linenumber="227">
+          <span class="hits">160</span>
+          
+          <code class="ruby">    total = @district_repo.districts[0]\</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="228">
+          
+          
+          <code class="ruby">    .economic_profile.economic_data[:free_or_reduced_price_lunch].values</code>
+        </li>
+      
+        <li class="covered" data-hits="160" data-linenumber="229">
+          <span class="hits">160</span>
+          
+          <code class="ruby">    values = total.reduce([]) do |result, data|</code>
+        </li>
+      
+        <li class="covered" data-hits="2400" data-linenumber="230">
+          <span class="hits">2400</span>
+          
+          <code class="ruby">      result &lt;&lt; data[:total]</code>
+        </li>
+      
+        <li class="covered" data-hits="2400" data-linenumber="231">
+          <span class="hits">2400</span>
+          
+          <code class="ruby">      result</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="232">
+          
+          
+          <code class="ruby">    end.flatten</code>
+        </li>
+      
+        <li class="covered" data-hits="160" data-linenumber="233">
+          <span class="hits">160</span>
+          
+          <code class="ruby">    average = values.reduce(:+)/values.count/@district_repo.districts.length</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="234">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="235">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="236">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def average_for_each_district_high_school_graduation(schools)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="237">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    total = schools.find_all do |school|</code>
+        </li>
+      
+        <li class="covered" data-hits="24" data-linenumber="238">
+          <span class="hits">24</span>
+          
+          <code class="ruby">      school.enrollment.high_school_data[:high_school_graduation_participation]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="239">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="240">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    total.map do |school|</code>
+        </li>
+      
+        <li class="covered" data-hits="24" data-linenumber="241">
+          <span class="hits">24</span>
+          
+          <code class="ruby">      each_avg = school.enrollment\</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="242">
+          
+          
+          <code class="ruby">      .high_school_data[:high_school_graduation_participation].values</code>
+        </li>
+      
+        <li class="covered" data-hits="24" data-linenumber="243">
+          <span class="hits">24</span>
+          
+          <code class="ruby">      final_avg = each_avg.reduce(:+)/each_avg.length</code>
+        </li>
+      
+        <li class="covered" data-hits="24" data-linenumber="244">
+          <span class="hits">24</span>
+          
+          <code class="ruby">      greater_than_state =\</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="245">
+          
+          
+          <code class="ruby">       final_avg &gt; average_for_all_districts_high_school_graduation</code>
+        </li>
+      
+        <li class="covered" data-hits="24" data-linenumber="246">
+          <span class="hits">24</span>
+          
+          <code class="ruby">      @passed_HS_filter &lt;&lt; school if greater_than_state</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="247">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="248">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="249">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="250">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def average_for_all_districts_high_school_graduation</code>
+        </li>
+      
+        <li class="covered" data-hits="26" data-linenumber="251">
+          <span class="hits">26</span>
+          
+          <code class="ruby">    path = @district_repo.districts[0]\</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="252">
+          
+          
+          <code class="ruby">    .enrollment.high_school_data[:high_school_graduation_participation].values</code>
+        </li>
+      
+        <li class="covered" data-hits="26" data-linenumber="253">
+          <span class="hits">26</span>
+          
+          <code class="ruby">    total = path.reduce(:+)</code>
+        </li>
+      
+        <li class="covered" data-hits="26" data-linenumber="254">
+          <span class="hits">26</span>
+          
+          <code class="ruby">    length = path.length</code>
+        </li>
+      
+        <li class="covered" data-hits="26" data-linenumber="255">
+          <span class="hits">26</span>
+          
+          <code class="ruby">    total/length</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="256">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="257">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="258">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def average_for_all_districts_median_household_income</code>
+        </li>
+      
+        <li class="covered" data-hits="549" data-linenumber="259">
+          <span class="hits">549</span>
+          
+          <code class="ruby">    path = @district_repo.districts[0]\</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="260">
+          
+          
+          <code class="ruby">    .economic_profile.economic_data[:median_household_income].values</code>
+        </li>
+      
+        <li class="covered" data-hits="549" data-linenumber="261">
+          <span class="hits">549</span>
+          
+          <code class="ruby">    total = path.reduce(:+)</code>
+        </li>
+      
+        <li class="covered" data-hits="549" data-linenumber="262">
+          <span class="hits">549</span>
+          
+          <code class="ruby">    length = path.length</code>
+        </li>
+      
+        <li class="covered" data-hits="549" data-linenumber="263">
+          <span class="hits">549</span>
+          
+          <code class="ruby">    total/length</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="264">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="265">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="266">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def average_for_each_districts_median_household_income</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="267">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    total = @district_repo.districts.find_all do |school|</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="268">
+          
+          
+          <code class="ruby">      school.economic_profile\</code>
+        </li>
+      
+        <li class="covered" data-hits="362" data-linenumber="269">
+          <span class="hits">362</span>
+          
+          <code class="ruby">      .economic_data[:median_household_income] if school.name != &quot;COLORADO&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="270">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="271">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    total.each do |school|</code>
+        </li>
+      
+        <li class="covered" data-hits="360" data-linenumber="272">
+          <span class="hits">360</span>
+          
+          <code class="ruby">      average = school.economic_profile\</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="273">
+          
+          
+          <code class="ruby">      .economic_data[:median_household_income].values</code>
+        </li>
+      
+        <li class="covered" data-hits="360" data-linenumber="274">
+          <span class="hits">360</span>
+          
+          <code class="ruby">      each_avg = average.reduce([]) do |result, data|</code>
+        </li>
+      
+        <li class="covered" data-hits="1800" data-linenumber="275">
+          <span class="hits">1800</span>
+          
+          <code class="ruby">        result &lt;&lt; data</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="276">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="covered" data-hits="360" data-linenumber="277">
+          <span class="hits">360</span>
+          
+          <code class="ruby">      final_avg = each_avg.reduce(:+)/each_avg.length</code>
+        </li>
+      
+        <li class="covered" data-hits="360" data-linenumber="278">
+          <span class="hits">360</span>
+          
+          <code class="ruby">      greater_than_state =\</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="279">
+          
+          
+          <code class="ruby">      final_avg &gt; average_for_all_districts_median_household_income</code>
+        </li>
+      
+        <li class="covered" data-hits="360" data-linenumber="280">
+          <span class="hits">360</span>
+          
+          <code class="ruby">      @passed_median_income_filter &lt;&lt; school if greater_than_state</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="281">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="282">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    average_for_each_district_poverty_econ(@passed_median_income_filter)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="283">
@@ -1917,283 +1917,283 @@
         <li class="covered" data-hits="1" data-linenumber="285">
           <span class="hits">1</span>
           
-          <code class="ruby">  def high_income_disparity</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="286">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    average_for_each_districts_median_household_income</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="287">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    matching_districts = []</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="288">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    @passed_average_econ_filter.reduce([]) do |result, school|</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="289">
-          <span class="hits">4</span>
-          
-          <code class="ruby">      passing_districts = ResultEntry.new({</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="290">
-          
-          
-          <code class="ruby">        name: school.name,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="291">
-          
-          
-          <code class="ruby">        median_household_income: econ_income_average(school),</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="292">
-          
-          
-          <code class="ruby">        children_in_poverty_rate: poverty_dist_average(school)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="293">
-          
-          
-          <code class="ruby">        })</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="294">
-          <span class="hits">4</span>
-          
-          <code class="ruby">      matching_districts &lt;&lt; passing_districts</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="295">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="296">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    statewide_result = ResultEntry.new({</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="297">
-          
-          
-          <code class="ruby">      name: &quot;COLORADO&quot;,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="298">
-          
-          
-          <code class="ruby">      median_household_income:</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="299">
-          
-          
-          <code class="ruby">      average_for_all_districts_median_household_income,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="300">
-          
-          
-          <code class="ruby">      children_in_poverty_rate: average_for_all_districts_poverty</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="301">
-          
-          
-          <code class="ruby">      })</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="302">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    high_income_disparity_result = ResultSet.new(</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="303">
-          
-          
-          <code class="ruby">      matching_districts: matching_districts,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="304">
-          
-          
-          <code class="ruby">      statewide_average: statewide_result)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="305">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="306">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="307">
-          <span class="hits">1</span>
-          
           <code class="ruby">  def econ_income_average(school)</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="308">
+        <li class="covered" data-hits="4" data-linenumber="286">
           <span class="hits">4</span>
           
           <code class="ruby">    average = school.economic_profile\</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="309">
+        <li class="never" data-hits="" data-linenumber="287">
           
           
           <code class="ruby">    .economic_data[:median_household_income].values.reduce(:+)/</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="310">
+        <li class="never" data-hits="" data-linenumber="288">
           
           
           <code class="ruby">    school.economic_profile.economic_data[:median_household_income].length</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="311">
+        <li class="never" data-hits="" data-linenumber="289">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="312">
+        <li class="never" data-hits="" data-linenumber="290">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="313">
+        <li class="covered" data-hits="1" data-linenumber="291">
           <span class="hits">1</span>
           
-          <code class="ruby">  def kindergarten_participation_against_household_income(district_name)</code>
+          <code class="ruby">  def average_for_each_district_poverty_econ(school)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="314">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="292">
+          <span class="hits">2</span>
           
-          <code class="ruby">    MathHelper.truncate_float(kg_median_income_equation(district_name))</code>
+          <code class="ruby">    total = school.find_all do |school|</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="315">
+        <li class="covered" data-hits="100" data-linenumber="293">
+          <span class="hits">100</span>
           
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">      school.economic_profile.economic_data[:children_in_poverty]</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="316">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="317">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def kg_median_income_equation(school)</code>
-        </li>
-      
-        <li class="covered" data-hits="187" data-linenumber="318">
-          <span class="hits">187</span>
-          
-          <code class="ruby">    district = @district_repo.find_by_name(school)</code>
-        </li>
-      
-        <li class="covered" data-hits="187" data-linenumber="319">
-          <span class="hits">187</span>
-          
-          <code class="ruby">    kindergarten_variation = compute_kindergartner_participation_average(school)</code>
-        </li>
-      
-        <li class="covered" data-hits="187" data-linenumber="320">
-          <span class="hits">187</span>
-          
-          <code class="ruby">    median_income_variation = district\</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="321">
-          
-          
-          <code class="ruby">    .economic_profile.median_household_income_average\</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="322">
-          
-          
-          <code class="ruby">    .to_f/average_for_all_districts_median_household_income.to_f</code>
-        </li>
-      
-        <li class="covered" data-hits="187" data-linenumber="323">
-          <span class="hits">187</span>
-          
-          <code class="ruby">    MathHelper.truncate_float(kindergarten_variation/median_income_variation)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="324">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="325">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="326">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def compare_selected_participation_vs_median_income(selected_schools)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="327">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    collection = selected_schools.map do |school|</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="328">
-          <span class="hits">4</span>
-          
-          <code class="ruby">      correlation = kg_median_income_equation(school)</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="329">
-          <span class="hits">4</span>
-          
-          <code class="ruby">      correlation.between?(0.6, 1.5)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="330">
+        <li class="never" data-hits="" data-linenumber="294">
           
           
           <code class="ruby">    end</code>
         </li>
       
+        <li class="covered" data-hits="2" data-linenumber="295">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    total.map do |school|</code>
+        </li>
+      
+        <li class="covered" data-hits="100" data-linenumber="296">
+          <span class="hits">100</span>
+          
+          <code class="ruby">      average = school.economic_profile\</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="297">
+          
+          
+          <code class="ruby">      .economic_data[:children_in_poverty].values.reduce(:+)/</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="298">
+          
+          
+          <code class="ruby">      school.economic_profile.economic_data[:children_in_poverty].length</code>
+        </li>
+      
+        <li class="covered" data-hits="100" data-linenumber="299">
+          <span class="hits">100</span>
+          
+          <code class="ruby">      greater_than_state = average &gt; average_for_all_districts_poverty</code>
+        </li>
+      
+        <li class="covered" data-hits="100" data-linenumber="300">
+          <span class="hits">100</span>
+          
+          <code class="ruby">      @passed_average_econ_filter &lt;&lt; school if greater_than_state</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="301">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="302">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="303">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="304">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def high_income_disparity</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="305">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    average_for_each_districts_median_household_income</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="306">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    create_high_income_disparity_instances</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="307">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="308">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="309">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def create_high_income_disparity_instances</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="310">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    matching_districts = []</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="311">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    @passed_average_econ_filter.reduce([]) do |result, school|</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="312">
+          <span class="hits">4</span>
+          
+          <code class="ruby">      passing_districts = ResultEntry.new({</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="313">
+          
+          
+          <code class="ruby">        name: school.name,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="314">
+          
+          
+          <code class="ruby">        median_household_income: econ_income_average(school),</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="315">
+          
+          
+          <code class="ruby">        children_in_poverty_rate: poverty_dist_average(school)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="316">
+          
+          
+          <code class="ruby">        })</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="317">
+          <span class="hits">4</span>
+          
+          <code class="ruby">      matching_districts &lt;&lt; passing_districts</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="318">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="319">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    statewide_result = ResultEntry.new({</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="320">
+          
+          
+          <code class="ruby">      name: &quot;COLORADO&quot;,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="321">
+          
+          
+          <code class="ruby">      median_household_income:</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="322">
+          
+          
+          <code class="ruby">      average_for_all_districts_median_household_income,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="323">
+          
+          
+          <code class="ruby">      children_in_poverty_rate: average_for_all_districts_poverty</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="324">
+          
+          
+          <code class="ruby">      })</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="325">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    high_income_disparity_result = ResultSet.new(</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="326">
+          
+          
+          <code class="ruby">      matching_districts: matching_districts,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="327">
+          
+          
+          <code class="ruby">      statewide_average: statewide_result)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="328">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="329">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="330">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def kindergarten_participation_against_household_income(district_name)</code>
+        </li>
+      
         <li class="covered" data-hits="1" data-linenumber="331">
           <span class="hits">1</span>
           
-          <code class="ruby">    compare_statewide_correlation(collection)</code>
+          <code class="ruby">    MathHelper.truncate_float(kg_median_income_equation(district_name))</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="332">
@@ -2211,43 +2211,43 @@
         <li class="covered" data-hits="1" data-linenumber="334">
           <span class="hits">1</span>
           
-          <code class="ruby">  def compare_all_participation_vs_median_income</code>
+          <code class="ruby">  def kg_median_income_equation(school)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="335">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="187" data-linenumber="335">
+          <span class="hits">187</span>
           
-          <code class="ruby">    @district_repo.districts.each do |school|</code>
+          <code class="ruby">    district = @district_repo.find_by_name(school)</code>
         </li>
       
-        <li class="covered" data-hits="181" data-linenumber="336">
-          <span class="hits">181</span>
+        <li class="covered" data-hits="187" data-linenumber="336">
+          <span class="hits">187</span>
           
-          <code class="ruby">      correlation = kg_median_income_equation(school.name).to_f</code>
+          <code class="ruby">    kindergarten_variation = compute_kindergartner_participation_average(school)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="337">
+        <li class="covered" data-hits="187" data-linenumber="337">
+          <span class="hits">187</span>
           
-          
-          <code class="ruby">      @statewide &lt;&lt; correlation.between?(0.6, 1.5) unless school.name\</code>
+          <code class="ruby">    median_income_variation = district\</code>
         </li>
       
-        <li class="covered" data-hits="181" data-linenumber="338">
-          <span class="hits">181</span>
+        <li class="never" data-hits="" data-linenumber="338">
           
-          <code class="ruby">      == &quot;COLORADO&quot;</code>
+          
+          <code class="ruby">    .economic_profile.median_household_income_average\</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="339">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">    .to_f/average_for_all_districts_median_household_income.to_f</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="340">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="187" data-linenumber="340">
+          <span class="hits">187</span>
           
-          <code class="ruby">    compare_statewide_correlation</code>
+          <code class="ruby">    MathHelper.truncate_float(kindergarten_variation/median_income_variation)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="341">
@@ -2265,64 +2265,166 @@
         <li class="covered" data-hits="1" data-linenumber="343">
           <span class="hits">1</span>
           
-          <code class="ruby">  def kindergarten_participation_correlates_with_household_income(location)</code>
+          <code class="ruby">  def compare_selected_participation_vs_median_income(selected_schools)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="344">
-          <span class="hits">3</span>
-          
-          <code class="ruby">    if location[:for] == &quot;STATEWIDE&quot;</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="345">
+        <li class="covered" data-hits="1" data-linenumber="344">
           <span class="hits">1</span>
           
-          <code class="ruby">      return compare_all_participation_vs_median_income</code>
+          <code class="ruby">    collection = selected_schools.map do |school|</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="346">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="345">
+          <span class="hits">4</span>
           
-          <code class="ruby">    elsif location[:across]</code>
+          <code class="ruby">      correlation = kg_median_income_equation(school)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="347">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      compare_selected_participation_vs_median_income(location[:across])</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="348">
-          
-          
-          <code class="ruby">    else</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="349">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      correlation = kg_median_income_equation(location[:for])</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="350">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="4" data-linenumber="346">
+          <span class="hits">4</span>
           
           <code class="ruby">      correlation.between?(0.6, 1.5)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="351">
+        <li class="never" data-hits="" data-linenumber="347">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="352">
+        <li class="covered" data-hits="1" data-linenumber="348">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    compare_statewide_correlation(collection)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="349">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="353">
+        <li class="never" data-hits="" data-linenumber="350">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="351">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def compare_all_participation_vs_median_income</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="352">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    @district_repo.districts.each do |school|</code>
+        </li>
+      
+        <li class="covered" data-hits="181" data-linenumber="353">
+          <span class="hits">181</span>
+          
+          <code class="ruby">      correlation = kg_median_income_equation(school.name).to_f</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="354">
+          
+          
+          <code class="ruby">      @statewide &lt;&lt; correlation.between?(0.6, 1.5) unless school.name\</code>
+        </li>
+      
+        <li class="covered" data-hits="181" data-linenumber="355">
+          <span class="hits">181</span>
+          
+          <code class="ruby">      == &quot;COLORADO&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="356">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="357">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    compare_statewide_correlation</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="358">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="359">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="360">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def kindergarten_participation_correlates_with_household_income(location)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="361">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    if location[:for] == &quot;STATEWIDE&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="362">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      return compare_all_participation_vs_median_income</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="363">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    elsif location[:across]</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="364">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      compare_selected_participation_vs_median_income(location[:across])</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="365">
+          
+          
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="366">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      correlation = kg_median_income_equation(location[:for])</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="367">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      correlation.between?(0.6, 1.5)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="368">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="369">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="370">
           
           
           <code class="ruby">end</code>

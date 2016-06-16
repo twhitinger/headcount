@@ -13,7 +13,6 @@ class EconomicProfile
     data = @economic_data[:median_household_income].find_all do |range, income|
       year.between?(range[0], range[1])
     end
-    # raise UnknownDataError if data == []
     total = data.reduce(0) {|result, values| result += values[1]}
     total / data.count
   end
