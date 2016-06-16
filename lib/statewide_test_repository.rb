@@ -29,19 +29,9 @@ class StatewideTestRepository
           @statewide_tests[location_name] = StatewideTest.new({source => data})
         end
       end
-      # @statewide_tests.each do |key, value|
-      #   find_by_name(key).formatted_hash[key] = value
-      #   end
     end
-    # push_statewide_tests_to_statewide_test
-    # push_info_to_statewide_test
   end
 
-  # def push_info_to_statewide_test
-  #   statewide_tests.each do |name, data|
-  #     data.statewide_test << data
-  #   end
-  # end
 
   def find_by_name(district_name)
       statewide_tests[district_name]
