@@ -1,5 +1,5 @@
 class ResultEntry
-attr_reader :econ_data
+  attr_reader :econ_data
 
   def initialize(econ_data = {})
     @econ_data = econ_data
@@ -21,6 +21,9 @@ attr_reader :econ_data
     econ_data[:median_household_income]
   end
 
+  def name
+    econ_data[:name]
+  end
 
 
 end
