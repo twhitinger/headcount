@@ -25,7 +25,8 @@ class EconomicProfileRepository
   end
 
   def generate_repo(formatted_data)
-    formatted_data.each_with_object({}) do |(symbol_id, location_data), econ_data|
+    formatted_data.each_with_object({}) do |(symbol_id, location_data),\
+      econ_data|
       location_data.each do |name, data|
         if econ_data[name].nil?
           econ_data[name] = {symbol_id => data, :name => name}
@@ -38,9 +39,11 @@ class EconomicProfileRepository
 
   def format_data(file_tree)
     file_tree[:economic_profile].map do |symbol_id, filename|
-      econ_data_to_hash = CSV.readlines(filename, headers: true, header_converters: :symbol).map(&:to_h)
+      econ_data_to_hash = CSV.readlines(filename, headers: true,\
+      header_converters: :symbol).map(&:to_h)
       file_data = Hash.new({})
-      econ_data_grouped_by_location(econ_data_to_hash, symbol_id).each do |name, one_districts_data|
+      econ_data_grouped_by_location(econ_data_to_hash, symbol_id).each\
+      do |name, one_districts_data|
         file_data[symbol_id][name] = one_districts_data
       end
       [symbol_id, file_data[symbol_id]]
@@ -48,7 +51,8 @@ class EconomicProfileRepository
   end
 
   def econ_data_grouped_by_location(econ_data, symbol_id)
-    group_data_by_location(econ_data).each_with_object({}) do |(name, values), one_districts_info|
+    group_data_by_location(econ_data).each_with_object({})\
+    do |(name, values), one_districts_info|
       delegate_by_symbol_id(name, values, one_districts_info, symbol_id)
     end
   end
@@ -78,7 +82,9 @@ class EconomicProfileRepository
 
   def poor_data(name, value, data)
     data[name] = value.each_with_object({}) do |row, year_data|
-      year_data[row[:timeframe].to_i] = row[:data].to_f if row[:dataformat].upcase == "PERCENT"
+      if row[:dataformat].upcase == "PERCENT"
+        year_data[row[:timeframe].to_i] = row[:data].to_f
+      end
     end
   end
 

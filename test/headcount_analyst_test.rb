@@ -5,20 +5,20 @@ require_relative 'test_helper'
 
 class HeadcountAnalystTest < Minitest::Test
     def test_headcount_is_existing
-    # skip
+    
     ha = HeadcountAnalyst.new
     assert ha
     end
 
     def test_initialize_headcount_with_district
-    # skip
+    
     dr = DistrictRepository.new
     ha = HeadcountAnalyst.new(dr)
     assert ha
     end
 
     def test_kindergarten_participation_rate_variation
-    # skip
+    
     dr = DistrictRepository.new
     dr.load_data({
     :enrollment => {
@@ -31,7 +31,7 @@ class HeadcountAnalystTest < Minitest::Test
     end
 
     def test_kindergarten_participation_rate_variation_trend
-    # skip
+    
     dr = DistrictRepository.new
     dr.load_data({
     :enrollment => {
@@ -47,7 +47,7 @@ class HeadcountAnalystTest < Minitest::Test
     end
 
     def test_kindergarten_vs_high_school
-    # skip
+    
     dr = DistrictRepository.new
     dr.load_data({
     :enrollment => {
@@ -61,7 +61,7 @@ class HeadcountAnalystTest < Minitest::Test
     end
 
     def test_kindergarten_vs_high_school_prediction
-    # skip
+    
     dr = DistrictRepository.new
     dr.load_data({
     :enrollment => {
@@ -75,7 +75,7 @@ class HeadcountAnalystTest < Minitest::Test
     end
 
     def test_looping_through_each_district
-    # skip
+    
     dr = DistrictRepository.new
     dr.load_data({
     :enrollment => {
@@ -86,11 +86,11 @@ class HeadcountAnalystTest < Minitest::Test
     ha = HeadcountAnalyst.new(dr)
 
 
-    refute ha.loop_through_all_schools
+    refute ha.compare_all_participation
     end
 
     def test_find_if_correlates_statewide_returns_boolean
-    # skip
+    
     dr = DistrictRepository.new
     dr.load_data({
     :enrollment => {
@@ -104,7 +104,7 @@ class HeadcountAnalystTest < Minitest::Test
     end
 
     def test_find_if_correlates_selected_states_returns_boolean
-    # skip
+    
     dr = DistrictRepository.new
     dr.load_data({
     :enrollment => {
@@ -215,6 +215,7 @@ class HeadcountAnalystTest < Minitest::Test
     assert_equal 57408, rs.statewide_average.median_household_income
     assert_equal 0.16491292810457553, rs.statewide_average.children_in_poverty_rate
     end
+
     def test_kindergarten_participation_against_household_income
       dr = DistrictRepository.new
       dr.load_data({
@@ -229,7 +230,7 @@ class HeadcountAnalystTest < Minitest::Test
         })
       ha = HeadcountAnalyst.new(dr)
 
-      assert_equal 0.766, ha.kindergarten_participation_against_household_income("ACADEMY 20")
+      assert_equal 0.502, ha.kindergarten_participation_against_household_income("ACADEMY 20")
     end
 
     def test_kindergarten_participation_correlates_with_household_income
