@@ -9,7 +9,11 @@ class StatewideTestRepository
   def initialize
     @statewide_tests = {}
   end
-  #refactor
+
+  def find_by_name(district_name)
+    statewide_tests[district_name]
+  end
+
   def load_data(file_tree)
     filepath = file_tree[:statewide_testing]
     filepath.each do |source, filename|
@@ -18,29 +22,28 @@ class StatewideTestRepository
       scores_by_location = years.group_by do |row|
         row[:location]
       end
-      shit_together = scores_by_location.each_with_object({})\
+      combine_all_years = scores_by_location.each_with_object({})\
       do |(name, district_data), subject_data|
         single_district_data(name, district_data, subject_data)
       end
-      shit_together.each do |location_name, data|
-        if find_by_name(location_name)
-          find_by_name(location_name).class_data[source] = data
-        else
-          @statewide_tests[location_name] = StatewideTest.new({source => data})
-        end
-      end
+      test_data_merge(combine_all_years, source)
     end
   end
 
-
-  def find_by_name(district_name)
-      statewide_tests[district_name]
+  def test_data_merge(combine_all_years, source)
+    combine_all_years.each do |location_name, data|
+      if find_by_name(location_name)
+        find_by_name(location_name).class_data[source] = data
+      else
+        @statewide_tests[location_name] = StatewideTest.new({source => data})
+      end
+    end
   end
 
   def single_subject_data(year, data, district_data)
     one_subject_data = data.each_with_object({}) do |row, subject_data|
       subject_data[row[class_or_race(row)].downcase.to_sym]\
-       = sanitize_data_to_na(row[:data])
+      = sanitize_data_to_na(row[:data])
     end
     district_data[year] = one_subject_data
   end
