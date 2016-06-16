@@ -56,7 +56,7 @@ class EnrollmentTest < Minitest::Test
         :kindergarten => "./data/Kindergartners in full-day program.csv",
         :high_school_graduation => "./data/High school graduation rates.csv"
       }
-      })
+    })
     enrollment = er.find_by_name("ACADEMY 20")
 
     assert_instance_of Enrollment, enrollment
@@ -69,7 +69,7 @@ class EnrollmentTest < Minitest::Test
         :kindergarten => "./data/Kindergartners in full-day program.csv",
         :high_school_graduation => "./data/High school graduation rates.csv"
       }
-      })
+    })
     enrollment1 = er.find_by_name("ACADEMY 20")
     enrollment2 = er.find_by_name("COLORADO")
 
@@ -84,7 +84,7 @@ class EnrollmentTest < Minitest::Test
         :kindergarten => "./data/Kindergartners in full-day program.csv",
         :high_school_graduation => "./data/High school graduation rates.csv"
       }
-      })
+    })
     enrollment = er.find_by_name("ACADEMY 20")
 
     assert_equal 0.895, enrollment.graduation_rate_in_year(2010)

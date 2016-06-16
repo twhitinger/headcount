@@ -14,24 +14,28 @@ class HeadcountAnalyst
     @passed_average_econ_filter = []
   end
 
-  def kindergarten_participation_rate_variation(location_one, location_two)
-    location_one_average =
-    compute_kindergartner_participation_average(location_one)
-    location_two_average =
-    compute_kindergartner_participation_average(location_two[:against])
-    MathHelper.truncate_float(location_one_average/location_two_average)
+  def kindergarten_participation_rate_variation(district_one, district_two)
+    d1_avg = compute_kindergartner_participation_average(district_one)
+    d2_avg = compute_kindergartner_participation_average(district_two[:against])
+    MathHelper.truncate_float(d1_avg/d2_avg)
   end
 
-  def compute_kindergartner_participation_average(location_name)
-    location = @district_repo.find_by_name(location_name)
+  def compute_kindergartner_participation_average(district)
+    kpa_by_district(district)/kpa_statewide
+  end
+
+  def kpa_by_district(district)
+    district = @district_repo.find_by_name(district)
+    district.enrollment\
+    .kindergarten_data[:kindergarten_participation].values.reduce(:+)/
+    district.enrollment.kindergarten_data[:kindergarten_participation].length
+  end
+
+  def kpa_statewide
     statewide = @district_repo.find_by_name("Colorado")
-    loc_avg = location.enrollment\
+    statewide.enrollment\
     .kindergarten_data[:kindergarten_participation].values.reduce(:+)/
-    location.enrollment.kindergarten_data[:kindergarten_participation].length
-    sw_avg = statewide.enrollment\
-    .kindergarten_data[:kindergarten_participation].values.reduce(:+)/
-    location.enrollment.kindergarten_data[:kindergarten_participation].length
-    loc_avg/sw_avg
+    statewide.enrollment.kindergarten_data[:kindergarten_participation].length
   end
 
   def kindergarten_participation_rate_variation_trend(location_one,
@@ -43,18 +47,25 @@ class HeadcountAnalyst
     loc1.merge(loc2) { |k, v1, v2| MathHelper.truncate_float(v1/v2) }
   end
 
-  def compute_hs_grad_participation_avg(location_name)
-    location = @district_repo.find_by_name(location_name)
+  def compute_hs_grad_participation_avg(district)
+    hsgp_district_avg(district)/hsgp_statewide_avg
+  end
+
+  def hsgp_district_avg(district)
+    location = @district_repo.find_by_name(district)
+    location.enrollment\
+    .high_school_data[:high_school_graduation_participation].values.reduce(:+)/
+    location.enrollment.high_school_data[:high_school_graduation_participation]\
+    .length
+  end
+
+  def hsgp_statewide_avg
     statewide = @district_repo.find_by_name("Colorado")
-    loc_avg = location.enrollment\
+    statewide.enrollment\
     .high_school_data[:high_school_graduation_participation].values.reduce(:+)/
-    location.enrollment.high_school_data[:high_school_graduation_participation]\
+    statewide.enrollment\
+    .high_school_data[:high_school_graduation_participation]\
     .length
-    sw_avg = statewide.enrollment\
-    .high_school_data[:high_school_graduation_participation].values.reduce(:+)/
-    location.enrollment.high_school_data[:high_school_graduation_participation]\
-    .length
-    loc_avg/sw_avg
   end
 
   def kindergarten_participation_against_high_school_graduation(location_one)
@@ -70,10 +81,13 @@ class HeadcountAnalyst
     elsif location[:across]
       compare_selected_participation(location[:across])
     else
-      correlation =
-      kindergarten_participation_against_high_school_graduation(location[:for])
-      correlation.between?(0.6, 1.5)
+      check_for_correlation(\
+      kindergarten_participation_against_high_school_graduation(location[:for]))
     end
+  end
+
+  def check_for_correlation(correlation)
+    correlation.between?(0.6, 1.5)
   end
 
   def compare_kindergarten_and_high_school_participation(school)
@@ -84,18 +98,18 @@ class HeadcountAnalyst
 
   def compare_selected_participation(selected_schools)
     array = selected_schools.map do |school|
-      correlation = compare_kindergarten_and_high_school_participation(school)
-      correlation.between?(0.6, 1.5)
+      check_for_correlation(\
+      compare_kindergarten_and_high_school_participation(school))
     end
     compare_statewide_correlation(array)
   end
 
   def compare_all_participation
     @district_repo.districts.each do |school|
-      correlation = compare_kindergarten_and_high_school_participation\
-      (school.name)
-      @statewide << correlation.between?(0.6, 1.5) unless school.name\
-      == "COLORADO"
+      unless school.name == "COLORADO"
+        @statewide << check_for_correlation(\
+        compare_kindergarten_and_high_school_participation(school.name))
+      end
     end
     compare_statewide_correlation
   end
@@ -159,24 +173,26 @@ class HeadcountAnalyst
     total/length
   end
 
+  def total_schools(data_set)
+    @district_repo.districts.find_all do |school|
+      school.economic_profile.economic_data[data_set]
+    end
+  end
 
   def average_for_each_district_poverty
-    total = @district_repo.districts.find_all do |school|
-      school.economic_profile.economic_data[:children_in_poverty]
-    end
-    total.each do |school|
-      average = poverty_dist_average(school)
-      greater_than_state = average > average_for_all_districts_poverty
-      @passed_average_filter << school if greater_than_state
+    total_schools(:children_in_poverty).map do |school|
+      average = school.economic_profile\
+      .economic_data[:children_in_poverty].values.reduce(:+)/
+      school.economic_profile.economic_data[:children_in_poverty].length
+      is_it = average > average_for_all_districts_poverty
+      @passed_average_filter << school if is_it
+
     end
     average_for_each_district_qualify_for_free_lunch(@passed_average_filter)
   end
 
   def average_for_all_districts_poverty
-    total = @district_repo.districts.find_all do |school|
-      school.economic_profile.economic_data[:children_in_poverty]
-    end
-    values = total.reduce([]) do |result, school|
+    values = total_schools(:children_in_poverty).reduce([]) do |result, school|
       all_values = school.economic_profile\
       .economic_data[:children_in_poverty].values
       result << all_values
@@ -216,7 +232,6 @@ class HeadcountAnalyst
     end.flatten
     average = values.reduce(:+)/values.count/@district_repo.districts.length
   end
-
 
   def average_for_each_district_high_school_graduation(schools)
     total = schools.find_all do |school|
