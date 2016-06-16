@@ -10,6 +10,8 @@ class HeadcountAnalyst
     @passed_average_filter = []
     @passed_lunch_filter = []
     @passed_HS_filter = []
+    @passed_median_income_filter = []
+    @passed_average_econ_filter = []
   end
 
   def kindergarten_participation_rate_variation(location_one, location_two)
@@ -141,9 +143,6 @@ class HeadcountAnalyst
             average = school.economic_profile.economic_data[:children_in_poverty].values.reduce(:+)/
             school.economic_profile.economic_data[:children_in_poverty].length
             is_it = average > average_for_all_districts_poverty
-
-            # if the district is greater then the average poverty
-            # pass it to the next method qualify for free lunch method
             @passed_average_filter << school if is_it
           end
           average_for_each_district_qualify_for_free_lunch(@passed_average_filter)
@@ -163,7 +162,6 @@ class HeadcountAnalyst
 
         def average_for_each_district_qualify_for_free_lunch(schools)
 
-          # @passed_average_filter[0]
           total = schools.find_all do |school|
             school.economic_profile.economic_data[:free_or_reduced_price_lunch]
           end
@@ -208,4 +206,57 @@ class HeadcountAnalyst
           length = path.length
           total/length
         end
-      end
+
+        def average_for_all_districts_median_household_income
+          path = @district_repo.districts[0].economic_profile.economic_data[:median_household_income].values
+          total = path.reduce(:+)
+          length = path.length
+          total/length
+        end
+
+        def average_for_each_districts_median_household_income
+          total = @district_repo.districts.find_all do |school|
+            school.economic_profile.economic_data[:median_household_income] if school.name != "COLORADO"
+          end
+          total.map do |school|
+            average = school.economic_profile.economic_data[:median_household_income].values
+            each_avg = average.reduce([]) do |result, data|
+              result << data
+            end
+            final_avg = each_avg.reduce(:+)/each_avg.length
+            is_it = final_avg > average_for_all_districts_median_household_income
+            @passed_median_income_filter << school if is_it
+          end
+          average_for_each_district_poverty_econ(@passed_median_income_filter)
+        end
+
+        def average_for_each_district_poverty_econ(school)
+          total = school.find_all do |school|
+            school.economic_profile.economic_data[:children_in_poverty]
+          end
+          total.map do |school|
+            average = school.economic_profile.economic_data[:children_in_poverty].values.reduce(:+)/
+            school.economic_profile.economic_data[:children_in_poverty].length
+            is_it = average > average_for_all_districts_poverty
+            @passed_average_econ_filter << school if is_it
+          end
+        end
+
+        def high_income_disparity
+          average_for_each_districts_median_household_income
+          matching_districts = []
+          @passed_average_econ_filter.reduce([]) do |result, school|
+            passing_districts = ResultEntry.new({name: school.name, median_household_income:
+               econ_income_average(school), children_in_poverty_rate: poverty_dist_average(school)})
+              matching_districts << passing_districts
+            end
+            statewide_result = ResultEntry.new({name: "COLORADO", median_household_income:
+              average_for_all_districts_median_household_income, children_in_poverty_rate: average_for_all_districts_poverty})
+              high_income_disparity_result = ResultSet.new(matching_districts: matching_districts,statewide_average: statewide_result)
+            end
+
+            def econ_income_average(school)
+              average = school.economic_profile.economic_data[:median_household_income].values.reduce(:+)/
+              school.economic_profile.economic_data[:median_household_income].length
+            end
+          end
