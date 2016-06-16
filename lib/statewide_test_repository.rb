@@ -9,7 +9,7 @@ class StatewideTestRepository
   def initialize
     @statewide_tests = {}
   end
-
+  #refactor
   def load_data(file_tree)
     filepath = file_tree[:statewide_testing]
     filepath.each do |source, filename|
@@ -79,19 +79,3 @@ class StatewideTestRepository
     end
   end
 end
-
-
-
-
-
-# if source == :third_grade
-#   @store_all_files[shit_together]
-# elsif source == :eighth_grade
-#   @store_all_files[8] = shit_together
-# elsif source == :math
-#   @store_all_files[:math] = shit_together
-# elsif source == :reading
-#   @store_all_files[:reading] = shit_together
-# else
-#   @store_all_files[:writing] = shit_together
-# end
