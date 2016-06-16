@@ -10,7 +10,7 @@ class StatewideTest
   end
 
   def proficient_by_grade(grade)
-    # raise_unknown_data_error(grade)
+    raise UnknownDataError unless grade == 3 || grade == 8
     class_data[grade_hash(grade)]
   end
 
@@ -27,6 +27,7 @@ class StatewideTest
   end
 
   def proficient_by_race_or_ethnicity(race)
+    raise_unknown_race_error(race)
     class_data[:math].keys.each do |year|
       make_hash_entry(year, race)
       @formatted_hash[year] = @embedded_hash
@@ -49,6 +50,7 @@ class StatewideTest
 
   def proficient_for_subject_by_race_in_year(subject, race, year)
     sub_arr = [:math, :reading, :writing]
+    raise UnknownDataError unless race_keys(race)
     raise UnknownDataError unless sub_arr.include?(subject)
     class_data[subject][year][race]
   end
@@ -58,8 +60,7 @@ class StatewideTest
   end
 
   def raise_unknown_data_error(grade)
-    raise UnknownDataError unless class_data.values[0].class_data.keys.include?\
-    (grade_hash(grade))
+    raise UnknownDataError unless grade_hash(grade)
   end
 
 

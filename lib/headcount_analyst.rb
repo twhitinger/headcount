@@ -108,6 +108,10 @@ class HeadcountAnalyst
 
   def high_poverty_and_high_school_graduation # This needs to be refactored
     average_for_each_district_poverty
+    create_high_povery_instance
+  end
+
+  def create_high_povery_instance
     matching_districts = []
     @passed_HS_filter.reduce([]) do |result, school|
       passing_districts = ResultEntry.new({
@@ -132,6 +136,7 @@ class HeadcountAnalyst
   end
 
   def poverty_dist_average(school)
+    #refactored
     average = school.economic_profile\
     .economic_data[:children_in_poverty].values.reduce(:+)/
     school.economic_profile.economic_data[:children_in_poverty].length
@@ -159,12 +164,10 @@ class HeadcountAnalyst
     total = @district_repo.districts.find_all do |school|
       school.economic_profile.economic_data[:children_in_poverty]
     end
-    total.map do |school|
-      average = school.economic_profile\
-      .economic_data[:children_in_poverty].values.reduce(:+)/
-      school.economic_profile.economic_data[:children_in_poverty].length
-      is_it = average > average_for_all_districts_poverty
-      @passed_average_filter << school if is_it
+    total.each do |school|
+      average = poverty_dist_average(school)
+      greater_than_state = average > average_for_all_districts_poverty
+      @passed_average_filter << school if greater_than_state
     end
     average_for_each_district_qualify_for_free_lunch(@passed_average_filter)
   end
@@ -182,19 +185,24 @@ class HeadcountAnalyst
     average = values.reduce(:+)/values.count
   end
 
+  def district_average(school)
+    average = school.economic_profile\
+    .economic_data[:free_or_reduced_price_lunch]
+    each_avg = average.reduce([]) do |result, data|
+      result << data.last[:total]
+    end
+    final_avg = each_avg.reduce(:+)/each_avg.length
+  end
+
   def average_for_each_district_qualify_for_free_lunch(schools)
     total = schools.find_all do |school|
       school.economic_profile.economic_data[:free_or_reduced_price_lunch]
     end
     total.map do |school|
-      average = school.economic_profile\
-      .economic_data[:free_or_reduced_price_lunch]
-      each_avg = average.reduce([]) do |result, data|
-        result << data.last[:total]
-      end
-      final_avg = each_avg.reduce(:+)/each_avg.length
-      is_it = final_avg > average_for_all_districts_qualify_for_free_lunch
-      @passed_lunch_filter << school if is_it
+    final_avg = district_average(school)
+      greater_than_state =\
+       final_avg > average_for_all_districts_qualify_for_free_lunch
+      @passed_lunch_filter << school if greater_than_state
     end
     average_for_each_district_high_school_graduation(@passed_lunch_filter)
   end
@@ -218,8 +226,9 @@ class HeadcountAnalyst
       each_avg = school.enrollment\
       .high_school_data[:high_school_graduation_participation].values
       final_avg = each_avg.reduce(:+)/each_avg.length
-      is_it = final_avg > average_for_all_districts_high_school_graduation
-      @passed_HS_filter << school if is_it
+      greater_than_state =\
+       final_avg > average_for_all_districts_high_school_graduation
+      @passed_HS_filter << school if greater_than_state
     end
   end
 
@@ -244,17 +253,24 @@ class HeadcountAnalyst
       school.economic_profile\
       .economic_data[:median_household_income] if school.name != "COLORADO"
     end
-    total.map do |school|
+    total.each do |school|
       average = school.economic_profile\
       .economic_data[:median_household_income].values
       each_avg = average.reduce([]) do |result, data|
         result << data
       end
       final_avg = each_avg.reduce(:+)/each_avg.length
-      is_it = final_avg > average_for_all_districts_median_household_income
-      @passed_median_income_filter << school if is_it
+      greater_than_state =\
+      final_avg > average_for_all_districts_median_household_income
+      @passed_median_income_filter << school if greater_than_state
     end
     average_for_each_district_poverty_econ(@passed_median_income_filter)
+  end
+
+  def econ_income_average(school)
+    average = school.economic_profile\
+    .economic_data[:median_household_income].values.reduce(:+)/
+    school.economic_profile.economic_data[:median_household_income].length
   end
 
   def average_for_each_district_poverty_econ(school)
@@ -265,13 +281,17 @@ class HeadcountAnalyst
       average = school.economic_profile\
       .economic_data[:children_in_poverty].values.reduce(:+)/
       school.economic_profile.economic_data[:children_in_poverty].length
-      is_it = average > average_for_all_districts_poverty
-      @passed_average_econ_filter << school if is_it
+      greater_than_state = average > average_for_all_districts_poverty
+      @passed_average_econ_filter << school if greater_than_state
     end
   end
 
   def high_income_disparity
     average_for_each_districts_median_household_income
+    create_high_income_disparity_instances
+  end
+
+  def create_high_income_disparity_instances
     matching_districts = []
     @passed_average_econ_filter.reduce([]) do |result, school|
       passing_districts = ResultEntry.new({
@@ -290,12 +310,6 @@ class HeadcountAnalyst
     high_income_disparity_result = ResultSet.new(
       matching_districts: matching_districts,
       statewide_average: statewide_result)
-  end
-
-  def econ_income_average(school)
-    average = school.economic_profile\
-    .economic_data[:median_household_income].values.reduce(:+)/
-    school.economic_profile.economic_data[:median_household_income].length
   end
 
   def kindergarten_participation_against_household_income(district_name)

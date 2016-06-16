@@ -8,7 +8,7 @@ class EnrollmentRepository
   def initialize(enrollments = [])
     @enrollments = enrollments
   end
-
+  # refactor
   def load_data(file_tree)
     filepath = file_tree[:enrollment] if file_tree.has_key?(:enrollment)
     filepath.each do |source, filename|
